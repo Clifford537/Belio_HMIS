@@ -18,11 +18,11 @@
 
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
-    <div class="form-check">
-        {!! Form::label('gender', 'Gender', ['class' => 'form-check-label']) !!}
-        {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
+    {!! Form::label('gender', 'gender :') !!}
+    {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+</div>
 
-    </div>
+
 </div>
 
 <!-- Date Of Birth Field -->

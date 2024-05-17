@@ -19,11 +19,8 @@
 
     </div>-->
     <div class="form-group col-sm-6">
-    <label for="gender">Gender:</label><br>
-    <input type="radio" id="male" name="gender" value="true">
-    <label for="male">Male</label>
-    <input type="radio" id="female" name="gender" value="false">
-    <label for="female">Female</label><br>
+    {!! Form::label('Gender', 'Gender:') !!}
+    {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 10]) !!}
 </div>
 
 </div>
