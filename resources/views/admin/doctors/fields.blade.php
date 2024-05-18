@@ -1,14 +1,25 @@
 <!-- Date Of Birth Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('date_of_birth', 'Date Of Birth:') !!}
-    {!! Form::text('date_of_birth', null, ['class' => 'form-control','id'=>'date_of_birth']) !!}
+    {!! Form::text('date_of_birth', null, ['class' => 'form-control', 'id' => 'date_of_birth']) !!}
 </div>
 
 @push('page_scripts')
-    <script type="text/javascript">
-        $('#date_of_birth').datepicker()
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include Bootstrap Datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#date_of_birth').datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            });
+        });
     </script>
 @endpush
+
+
 
 <!-- Gender Field 
 <div class="form-group col-sm-6">
@@ -18,11 +29,9 @@
         {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
 
     </div>-->
-    <div class="form-group col-sm-6">
+<div class="form-group col-sm-6">
     {!! Form::label('Gender', 'Gender:') !!}
     {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 10]) !!}
-</div>
-
 </div>
 
 <!-- Phone Number Field -->
@@ -45,8 +54,8 @@
 
 <!-- Specialization Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('specialization_id', 'Specialization Id:') !!}
-    {!! Form::number('specialization_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('specialization_id', 'Specialization :') !!}
+    {!! Form::select('specialization_id', $specialisation->pluck('specialty', 'id')->prepend('Select specilisation', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- First Name Field -->
@@ -69,8 +78,8 @@
 
 <!-- Department Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('department_id', 'Department Id:') !!}
-    {!! Form::number('department_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('department_id', 'Department :') !!}
+    {!! Form::select('department_id', $department->pluck('name', 'id')->prepend('Select department', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Lisence Number Field -->

@@ -75,7 +75,6 @@ class DoctorDataTable extends DataTable
             'first_name',
             'surname',
             'other_names',
-            'department_id',
             'lisence_number',
             'years_of_experience',
             'employment_status_id',

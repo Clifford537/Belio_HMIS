@@ -26,7 +26,7 @@ class Patient extends Model
     ];
 
     protected $casts = [
-        'gender' => 'boolean',
+        'gender' => 'string',
         'phone_number' => 'string',
         'address' => 'string',
         'email' => 'string',
@@ -40,7 +40,7 @@ class Patient extends Model
     ];
 
     public static array $rules = [
-        'gender' => 'required|boolean',
+        'gender' => 'required|string|max:100',
         'phone_number' => 'nullable|string|max:50',
         'address' => 'required|string|max:50',
         'email' => 'nullable|string|max:50',

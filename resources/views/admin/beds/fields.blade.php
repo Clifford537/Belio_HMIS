@@ -22,7 +22,7 @@
 <!-- Bed Type Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('bed_type_id', 'Bed Type :') !!}
-    {!! Form::select('bed_type_id', $->pluck('type', 'id')->prepend('Select Bed Type', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::select('bed_type_id', $bedTypes->pluck('type', 'id')->prepend('Select Bed Type', ''), null, ['class' => 'form-control', 'required']) !!}
 
 </div>
 

@@ -38,7 +38,7 @@ class Doctor extends Model
     ];
 
     public static array $rules = [
-        'date_of_birth' => 'required',
+        'date_of_birth' => 'required|date_format:m/d/Y',
         'gender' => 'required|string|max:50',
         'phone_number' => 'nullable|string|max:50',
         'address' => 'nullable|string|max:100',

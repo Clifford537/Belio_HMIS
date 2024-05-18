@@ -9,6 +9,8 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\Admin\DoctorRepository;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Admin\Specialisation;
+use App\Models\Admin\Department;
 
 class DoctorController extends AppBaseController
 {
@@ -19,7 +21,7 @@ class DoctorController extends AppBaseController
     {
         $this->doctorRepository = $doctorRepo;
     }
-
+    
     /**
      * Display a listing of the Doctor.
      */
@@ -34,7 +36,11 @@ class DoctorController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.doctors.create');
+
+        $specialisation = Specialisation::all();
+        $department = Department::all();
+
+        return view('admin.doctors.create',compact('specialisation','department'));
     }
 
     /**
@@ -124,4 +130,5 @@ class DoctorController extends AppBaseController
 
         return redirect(route('admin.doctors.index'));
     }
+    
 }

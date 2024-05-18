@@ -12,6 +12,21 @@
     {!! Form::label('admission_date', 'Admission Date:') !!}
     {!! Form::text('admission_date', null, ['class' => 'form-control','id'=>'admission_date']) !!}
 </div>
+@push('page_scripts')
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include Bootstrap Datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#admission_date').datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            });
+        });
+    </script>
+@endpush
+
 
 @push('page_scripts')
     <script type="text/javascript">
