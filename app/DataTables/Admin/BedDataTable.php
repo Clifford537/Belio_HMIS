@@ -72,8 +72,6 @@ class BedDataTable extends DataTable
             'bed_type_id',
             'patient_id',
             'bedside_equipment',
-            'created_at',
-            'updated_at'
         ];
     }
 
