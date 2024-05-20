@@ -1,24 +1,3 @@
-<!-- Date Of Birth Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('date_of_birth', 'Date Of Birth:') !!}
-    {!! Form::text('date_of_birth', null, ['class' => 'form-control', 'id' => 'date_of_birth']) !!}
-</div>
-
-@push('page_scripts')
-    <!-- Include jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Include Bootstrap Datepicker JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#date_of_birth').datepicker({
-                format: 'mm/dd/yyyy',
-                autoclose: true
-            });
-        });
-    </script>
-@endpush
-
 <div class="form-group col-sm-6">
     {!! Form::label('Gender', 'Gender:') !!}
     {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 10]) !!}
@@ -41,6 +20,28 @@
     {!! Form::label('email', 'Email:') !!}
     {!! Form::email('email', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
 </div>
+
+<!-- Date Of Birth Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('date_of_birth', 'Date Of Birth:') !!}
+    {!! Form::text('date_of_birth', null, ['class' => 'form-control', 'id' => 'date_of_birth']) !!}
+</div>
+
+@push('page_scripts')
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include Bootstrap Datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#date_of_birth').datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            });
+        });
+    </script>
+@endpush
+
 
 <!-- Specialization Id Field -->
 <div class="form-group col-sm-6">
