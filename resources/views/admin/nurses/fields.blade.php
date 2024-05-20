@@ -22,9 +22,6 @@
     {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
 </div>
 
-
-</div>
-
 <!-- Date Of Birth Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('date_of_birth', 'Date Of Birth:') !!}
