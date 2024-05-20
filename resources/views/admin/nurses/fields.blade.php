@@ -18,9 +18,23 @@
 
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('gender', 'gender :') !!}
+    {!! Form::label('gender', 'Gender :') !!}
     {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
 </div>
+
+<!-- Email Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('email', 'Email:') !!}
+    {!! Form::email('email', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
+</div>
+
+<!-- Phone Number Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('phone_number', 'Phone Number:') !!}
+    {!! Form::text('phone_number', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
+</div>
+
+
 
 <!-- Date Of Birth Field -->
 <div class="form-group col-sm-6">
@@ -34,17 +48,7 @@
     </script>
 @endpush
 
-<!-- Phone Number Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('phone_number', 'Phone Number:') !!}
-    {!! Form::text('phone_number', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
-</div>
 
-<!-- Address Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('address', 'Address:') !!}
-    {!! Form::text('address', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
-</div>
 
 <!-- Certification Field -->
 <div class="form-group col-sm-6">
@@ -54,18 +58,13 @@
 
 <!-- Department Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('department_id', 'Department Id:') !!}
-    {!! Form::number('department_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('department_id', 'Department :') !!}
+    {!! Form::select('department_id', $department->pluck('name', 'id')->prepend('Select Department', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Shift Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('shift_id', 'Shift Id:') !!}
-    {!! Form::number('shift_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('shift_id', 'Shift :') !!}
+    {!! Form::select('shift_id', $shift->pluck('day_of_week', 'id')->prepend('Select Shift', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
-<!-- Email Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('email', 'Email:') !!}
-    {!! Form::email('email', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
-</div>
