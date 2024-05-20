@@ -75,9 +75,23 @@ class Doctor extends Model
     {
         return $this->hasMany(\App\Models\Admin\Theatre::class, 'doctor_incharge');
     }
-    public function Department()
-    {
-        return $this->belongsTo(Department::class, 'Department_id');
-    }
 
+
+    public function specialisation()
+    {
+        return $this->belongsTo(Specialisation::class, 'specialization_id');
+    }
+    public function employmentStatus()
+    {
+        return $this->belongsTo(EmploymentStatus::class, 'employment_status_id');
+    }
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id');
+    }
+    public function getDateOfBirthAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
 }
+

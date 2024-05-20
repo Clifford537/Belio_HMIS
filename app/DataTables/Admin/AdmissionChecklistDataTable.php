@@ -3,6 +3,7 @@
 namespace App\DataTables\Admin;
 
 use App\Models\Admin\AdmissionChecklist;
+use App\Models\Admin\Doctor;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -17,8 +18,14 @@ class AdmissionChecklistDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('ward', function (admissionChecklist $admissionChecklist) {
+                return $admissionChecklist->wardType->type ?? 'No Ward';
 
-        return $dataTable->addColumn('action','Admin.admission_checklists.datatables_actions');
+            })
+
+       ->addColumn('action','Admin.admission_checklists.datatables_actions');
+        return $dataTable;
     }
 
     /**

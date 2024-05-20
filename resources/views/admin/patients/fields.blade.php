@@ -1,3 +1,20 @@
+<!-- First Name Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('first_name', 'First Name:') !!}
+    {!! Form::text('first_name', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+</div>
+
+<!-- Surname Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('surname', 'Surname:') !!}
+    {!! Form::text('surname', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+</div>
+
+<!-- Other Names Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('other_names', 'Other Names:') !!}
+    {!! Form::text('other_names', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+</div>
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Gender', 'Gender:') !!}
@@ -28,24 +45,6 @@
     {!! Form::text('blood_group', null, ['class' => 'form-control', 'maxlength' => 10, 'maxlength' => 10]) !!}
 </div>
 
-<!-- First Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('first_name', 'First Name:') !!}
-    {!! Form::text('first_name', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
-</div>
-
-<!-- Surname Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('surname', 'Surname:') !!}
-    {!! Form::text('surname', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
-</div>
-
-<!-- Other Names Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('other_names', 'Other Names:') !!}
-    {!! Form::text('other_names', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
-</div>
-
 <!-- Emergency Contact Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('emergency_contact_name', 'Emergency Contact Name:') !!}
@@ -69,8 +68,8 @@
 
 <!-- Insurance Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('insurance_id', 'Insurance Id:') !!}
-    {!! Form::select('insurance_id', $insurances->pluck('id', 'id')->prepend('Select', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('insurance_id', 'Insurance:') !!}
+    {!! Form::select('insurance_id', $insurances->pluck('id', 'id')->prepend('Select Insurance', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Nurse Id Field -->
