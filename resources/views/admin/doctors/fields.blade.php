@@ -19,16 +19,6 @@
     </script>
 @endpush
 
-
-
-<!-- Gender Field 
-<div class="form-group col-sm-6">
-    <div class="form-check">
-        
-        {!! Form::label('gender', 'Gender') !!}
-        {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
-
-    </div>-->
 <div class="form-group col-sm-6">
     {!! Form::label('Gender', 'Gender:') !!}
     {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 10]) !!}
@@ -55,7 +45,7 @@
 <!-- Specialization Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('specialization_id', 'Specialization :') !!}
-    {!! Form::select('specialization_id', $specialisation->pluck('specialty', 'id')->prepend('Select specilisation', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::select('specialization_id', $specs->pluck('specialty', 'id')->prepend('Select ', ''), null, ['class' => 'form-control', 'required']) !!}     
 </div>
 
 <!-- First Name Field -->
@@ -97,11 +87,11 @@
 <!-- Employment Status Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('employment_status_id', 'Employment Status Id:') !!}
-    {!! Form::number('employment_status_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('employment_status_id', $emp_status->pluck('status', 'id')->prepend('Select', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Shift Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('shift_id', 'Shift Id:') !!}
-    {!! Form::number('shift_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('shift_id', $shift->pluck('day_of_week', 'id')->prepend('Select', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>

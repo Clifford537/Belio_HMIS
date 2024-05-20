@@ -11,11 +11,19 @@
 </div>
 
 @push('page_scripts')
-    <script type="text/javascript">
-        $('#imaging_date').datepicker()
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include Bootstrap Datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#imaging_date').datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            });
+        });
     </script>
 @endpush
-
 <!-- Imaging Results Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('imaging_results', 'Imaging Results:') !!}
@@ -25,7 +33,7 @@
 <!-- Technician Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('technician_id', 'Technician Id:') !!}
-    {!! Form::number('technician_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('technician_id', $technician->pluck('first_name', 'id')->prepend('Select', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Reporting Radiologist Field -->

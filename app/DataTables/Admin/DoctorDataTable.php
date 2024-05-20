@@ -78,7 +78,9 @@ class DoctorDataTable extends DataTable
             'lisence_number',
             'years_of_experience',
             'employment_status_id',
-            'shift_id'
+            'shift_id',
+            'department_id',
+            
         ];
     }
 

@@ -75,4 +75,9 @@ class Doctor extends Model
     {
         return $this->hasMany(\App\Models\Admin\Theatre::class, 'doctor_incharge');
     }
+    public function Department()
+    {
+        return $this->belongsTo(Department::class, 'Department_id');
+    }
+
 }

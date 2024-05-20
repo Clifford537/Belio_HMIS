@@ -22,7 +22,7 @@ class Technician extends Model
         'first_name' => 'string',
         'surname' => 'string',
         'other_names' => 'string',
-        'gender' => 'boolean',
+        'gender' => 'string',
         'email' => 'string',
         'phone_number' => 'string',
         'address' => 'string'
@@ -32,7 +32,7 @@ class Technician extends Model
         'first_name' => 'nullable|string|max:100',
         'surname' => 'nullable|string|max:100',
         'other_names' => 'nullable|string|max:100',
-        'gender' => 'nullable|boolean',
+        'gender' => 'nullable|string|max:100',
         'email' => 'nullable|string|max:50',
         'phone_number' => 'nullable|string|max:50',
         'address' => 'nullable|string|max:100',

@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Flash;
 use App\Models\Admin\Specialisation;
 use App\Models\Admin\Department;
+use App\Models\Admin\EmploymentStatus;
+use App\Models\Admin\Shift;
 
 class DoctorController extends AppBaseController
 {
@@ -37,10 +39,12 @@ class DoctorController extends AppBaseController
     public function create()
     {
 
-        $specialisation = Specialisation::all();
+        $specs = Specialisation::all();
         $department = Department::all();
+        $emp_status = EmploymentStatus::all();
+        $shift = Shift::all();
 
-        return view('admin.doctors.create',compact('specialisation','department'));
+        return view('admin.doctors.create',compact('specs','department','emp_status','shift'));
     }
 
     /**

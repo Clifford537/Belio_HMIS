@@ -17,8 +17,17 @@
 </div>
 
 @push('page_scripts')
-    <script type="text/javascript">
-        $('#coverage_start_date').datepicker()
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include Bootstrap Datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#coverage_start_date').datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            });
+        });
     </script>
 @endpush
 
@@ -29,8 +38,17 @@
 </div>
 
 @push('page_scripts')
-    <script type="text/javascript">
-        $('#coverage_end_date').datepicker()
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include Bootstrap Datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#coverage_end_date').datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            });
+        });
     </script>
 @endpush
 
@@ -43,5 +61,6 @@
 <!-- Patient Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('patient_id', 'Patient Id:') !!}
-    {!! Form::number('patient_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('patient_id', $patient->pluck('id', 'id')->prepend('Select', ''), null, ['class' => 'form-control', 'required']) !!}
+
 </div>

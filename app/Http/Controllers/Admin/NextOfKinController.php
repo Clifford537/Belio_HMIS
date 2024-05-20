@@ -9,7 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\Admin\NextOfKinRepository;
 use Illuminate\Http\Request;
 use Flash;
-
+use App\Models\Admin\Patient;
 class NextOfKinController extends AppBaseController
 {
     /** @var NextOfKinRepository $nextOfKinRepository*/
@@ -34,7 +34,8 @@ class NextOfKinController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.next_of_kins.create');
+        $patient = Patient::all();
+        return view('admin.next_of_kins.create',compact('patient'));
     }
 
     /**

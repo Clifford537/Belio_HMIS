@@ -18,11 +18,8 @@
 
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
-    <div class="form-check">
-        {!! Form::hidden('gender', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('gender', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('gender', 'Gender', ['class' => 'form-check-label']) !!}
-    </div>
+    {!! Form::label('Gender', 'Gender:') !!}
+    {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 10]) !!}
 </div>
 
 <!-- Phone Number Field -->
@@ -46,5 +43,5 @@
 <!-- Patient Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('patient_id', 'Patient Id:') !!}
-    {!! Form::number('patient_id', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::select('patient_id', $patient->pluck('id', 'id')->prepend('Select', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>

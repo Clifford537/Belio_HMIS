@@ -18,11 +18,8 @@
 
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
-    <div class="form-check">
-        {!! Form::hidden('gender', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('gender', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('gender', 'Gender', ['class' => 'form-check-label']) !!}
-    </div>
+    {!! Form::label('Gender', 'Gender:') !!}
+    {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 10]) !!}
 </div>
 
 <!-- Email Field -->

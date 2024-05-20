@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\Admin\InsuranceRepository;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Admin\Patient;
 
 class InsuranceController extends AppBaseController
 {
@@ -34,7 +35,9 @@ class InsuranceController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.insurances.create');
+        $patient= Patient::all();
+
+        return view('admin.insurances.create',compact('patient'));
     }
 
     /**
