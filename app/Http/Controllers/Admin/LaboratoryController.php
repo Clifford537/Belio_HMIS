@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\Admin\LaboratoryRepository;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Admin\Department;
 
 class LaboratoryController extends AppBaseController
 {
@@ -34,7 +35,8 @@ class LaboratoryController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.laboratories.create');
+        $department = Department::all();
+        return view('admin.laboratories.create', compact('department'));
     }
 
     /**

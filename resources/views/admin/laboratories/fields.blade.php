@@ -6,9 +6,10 @@
 
 <!-- Department Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('department_id', 'Department Id:') !!}
-    {!! Form::number('department_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('department_id', 'Department :') !!}
+    {!! Form::select('department_id', $department->pluck('name', 'id')->prepend('Select department', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
+
 
 <!-- Location Field -->
 <div class="form-group col-sm-6">
