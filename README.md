@@ -81,3 +81,6 @@ Belio HMIS is a comprehensive Hospital Management Information System built using
 - **Customization**: Customize the application according to your specific requirements by modifying resources, views, and controllers.
 
 
+## Contributors
+
+- [Clifford Mukosh](https://github.com/Clifford537) - cliffordmukosh@gmail.com
