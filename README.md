@@ -1,12 +1,14 @@
-# NFyom HMIS - Laravel Nova & Laravel Forge
+# Belio HMIS - Hospital Management Information System
 
-HMIS (Hospital Management Information System) is a Laravel application built with Laravel Nova for administration and Laravel Forge for server management. It provides a comprehensive solution for managing hospital operations efficiently.
+Belio HMIS is a comprehensive Hospital Management Information System built using Laravel with InfyOm for rapid development. It offers a suite of features to efficiently manage hospital operations.
 
 ## Features
 
-- **User Management**: Manage users with different roles and permissions.
+- **User Management**: Administer users with various roles and permissions.
 - **Patient Management**: Track patient records, appointments, and medical history.
 - **Doctor Management**: Manage doctor information, schedules, and appointments.
+- **Inventory Management**: Monitor medical supplies, equipment, and stock levels.
+- **Billing and Invoicing**: Generate invoices and manage billing for services provided.
 - **Reports and Analytics**: Generate reports and analyze data for insights into hospital operations.
 
 ## Installation
@@ -14,13 +16,13 @@ HMIS (Hospital Management Information System) is a Laravel application built wit
 1. **Clone the repository:**
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/Clifford537/Belio_HMIS.git
     ```
 
 2. **Navigate to the project directory:**
 
     ```bash
-    cd nfyom-hmis
+    cd Belio_HMIS
     ```
 
 3. **Install dependencies:**
@@ -52,34 +54,30 @@ HMIS (Hospital Management Information System) is a Laravel application built wit
     DB_PASSWORD=your_password
     ```
 
-7. **Migrate and seed the database:**
+7. **Generate necessary files using InfyOm:**
+
+    ```bash
+    php artisan infyom:install
+    ```
+
+8. **Migrate and seed the database:**
 
     ```bash
     php artisan migrate --seed
     ```
 
-8. **Install Laravel Nova:**
-
-    ```bash
-    php artisan nova:install
-    ```
-
-9. **Install Laravel Forge:**
-
-    ```bash
-    php artisan forge:install
-    ```
-
-10. **Serve the application:**
+9. **Serve the application:**
 
     ```bash
     php artisan serve
     ```
 
-11. **Visit** [http://localhost:8000](http://localhost:8000) **in your web browser to access the application.**
+10. **Visit** [http://localhost:8000](http://localhost:8000) **in your web browser to access the application.**
 
 ## Configuration
 
 - **Environment Variables**: Configure environment variables in the `.env` file for database connection, mail settings, and other application settings.
-- **Roles and Permissions**: Define roles and permissions using Laravel Nova's authorization system to control access to different parts of the application.
+- **Roles and Permissions**: Define roles and permissions to control access to different parts of the application.
+- **Customization**: Customize the application according to your specific requirements by modifying resources, views, and controllers.
+
 
