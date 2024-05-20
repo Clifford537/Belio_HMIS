@@ -49,17 +49,17 @@
 <!-- Patient Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('patient_id', 'Patient Id:') !!}
-    {!! Form::number('patient_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('patient_id', $patients->pluck('first_name', 'id')->prepend('Select ', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Nurse Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nurse_id', 'Nurse Id:') !!}
-    {!! Form::number('nurse_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('nurse_id', $nurses->pluck('first_name', 'id')->prepend('Select', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Doctor Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('doctor_id', 'Doctor Id:') !!}
-    {!! Form::number('doctor_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('doctor_id', $doctors->pluck('first_name', 'id')->prepend('Select ', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
