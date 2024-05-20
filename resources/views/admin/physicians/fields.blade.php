@@ -37,5 +37,5 @@
 <!-- Procedure Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('procedure_id', 'Procedure Id:') !!}
-    {!! Form::number('procedure_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('procedure_id', $procedures->pluck('procedure_code', 'id')->prepend('Select Procedure code', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>

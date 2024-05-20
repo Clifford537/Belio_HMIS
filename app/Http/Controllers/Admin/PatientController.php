@@ -9,6 +9,9 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\Admin\PatientRepository;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Admin\Nurse;
+use App\Models\Admin\Doctor;
+use App\Models\Admin\Insurance;
 
 class PatientController extends AppBaseController
 {
@@ -34,7 +37,10 @@ class PatientController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.patients.create');
+        $insurances =Insurance::all();
+        $doctors = Doctor::all();
+        $nurses = Nurse::all();
+        return view('admin.patients.create',compact('insurances','doctors','nurses'));
     }
 
     /**
