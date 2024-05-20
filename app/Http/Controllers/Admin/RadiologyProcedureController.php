@@ -9,6 +9,10 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\Admin\RadiologyProcedureRepository;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Admin\Doctor;
+use App\Models\Admin\Insurance;
+use App\Models\Admin\Patient;
+use App\Models\Admin\Theatre;
 
 class RadiologyProcedureController extends AppBaseController
 {
@@ -34,7 +38,11 @@ class RadiologyProcedureController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.radiology_procedures.create');
+        $doctor = Doctor::all();
+        $patient = Patient::all();
+        $insurance =Insurance::all();
+        $theatre = Theatre::all();
+        return view('admin.radiology_procedures.create',compact('doctor','patient','insurance','theatre'));
     }
 
     /**

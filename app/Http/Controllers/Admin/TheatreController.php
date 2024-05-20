@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\Admin\TheatreRepository;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Admin\Doctor;
 
 class TheatreController extends AppBaseController
 {
@@ -34,7 +35,8 @@ class TheatreController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.theatres.create');
+        $doctor = Doctor::all();
+        return view('admin.theatres.create',compact('doctor'));
     }
 
     /**
