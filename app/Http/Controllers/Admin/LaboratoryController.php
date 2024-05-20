@@ -10,6 +10,8 @@ use App\Repositories\Admin\LaboratoryRepository;
 use Illuminate\Http\Request;
 use Flash;
 use App\Models\Admin\Department;
+use App\Models\Admin\Technician;
+
 
 class LaboratoryController extends AppBaseController
 {
@@ -36,7 +38,8 @@ class LaboratoryController extends AppBaseController
     public function create()
     {
         $department = Department::all();
-        return view('admin.laboratories.create', compact('department'));
+        $technician = Technician::all();
+        return view('admin.laboratories.create', compact('department','technician'));
     }
 
     /**
