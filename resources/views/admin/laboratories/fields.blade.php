@@ -31,6 +31,6 @@
 
 <!-- Technician Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('technician_id', 'Technician Id:') !!}
-    {!! Form::number('technician_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('technician_id', 'Technician:') !!}
+    {!! Form::select('technician_id', $technician->pluck('first_name', 'id')->prepend('Select Technician', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
