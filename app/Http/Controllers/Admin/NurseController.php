@@ -9,6 +9,8 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\Admin\NurseRepository;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Admin\Department;
+use App\Models\Admin\Shift;
 
 class NurseController extends AppBaseController
 {
@@ -34,7 +36,9 @@ class NurseController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.nurses.create');
+        $department = Department::all();
+        $shift = Shift::all();
+        return view('admin.nurses.create',compact('department','shift'));
     }
 
     /**

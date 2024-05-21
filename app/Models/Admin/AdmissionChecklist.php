@@ -23,6 +23,10 @@ class AdmissionChecklist extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
+    public function ward()
+    {
+        return $this->belongsTo(AdmissionChecklist::class, 'ward_id');
+    }
 
-    
+
 }
