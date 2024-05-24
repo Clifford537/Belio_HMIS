@@ -10,6 +10,7 @@ use App\Repositories\Admin\ImagingResultRepository;
 use Illuminate\Http\Request;
 use Flash;
 use App\Models\Admin\Technician;
+use App\Models\Admin\Radiologist;
 
 class ImagingResultController extends AppBaseController
 {
@@ -36,7 +37,8 @@ class ImagingResultController extends AppBaseController
     public function create()
     {
         $technician = Technician::all();
-        return view('admin.imaging_results.create',compact('technician'));
+        $reportingRadiologist= Radiologist::all();
+        return view('admin.imaging_results.create',compact('technician','reportingRadiologist'));
     }
 
     /**

@@ -2,6 +2,9 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Bed;
+use App\Models\Admin\Doctor;
+use App\Models\Admin\Nurse;
 use App\Models\Admin\RadiologyProcedure;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -17,8 +20,37 @@ class RadiologyProcedureDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('patient', function (RadiologyProcedure $radiologyProcedure) {
+                $first_name =  $radiologyProcedure->patient->first_name ?? '';
+                $surname =  $radiologyProcedure->patient->surname ?? '';
+                $other_names =  $radiologyProcedure->patient->other_names ?? '';
 
-        return $dataTable->addColumn('action', 'Admin.radiology_procedures.datatables_actions');
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Patient' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Patient';
+            })
+
+            ->addColumn('doctor', function (RadiologyProcedure $radiologyProcedure) {
+                $first_name = $radiologyProcedure->doctor->first_name ?? '';
+                $surname = $radiologyProcedure->doctor->surname ?? '';
+                $other_names = $radiologyProcedure->doctor->other_names ?? '';
+
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Doctor' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Doctor';
+            })
+
+            ->addColumn('radiologist_name', function (RadiologyProcedure $radiologyProcedure) {
+                return $radiologyProcedure->radiologist->name ?? 'No Department';
+            })
+
+        ->addColumn('action', 'Admin.radiology_procedures.datatables_actions');
+        return $dataTable;
     }
 
     /**
@@ -66,11 +98,11 @@ class RadiologyProcedureDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'patient_id',
+            'patient_full_name',
             'procedure_code',
             'procedure_date',
             'description',
-            'doctor_id',
+            'doctor',
             'radiologist_name',
             'procedure_notes',
             'procedure_results',

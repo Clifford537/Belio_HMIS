@@ -35,5 +35,18 @@ class Insurance extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+    public function Patient()
+    {
+        return $this->belongsTo(Patient::class);
+
+
+}
+    public function getCoverageStartDateAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
+    public function getCoverageEndDateAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
 }

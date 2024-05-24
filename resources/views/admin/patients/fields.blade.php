@@ -59,11 +59,8 @@
 
 <!-- Status Field -->
 <div class="form-group col-sm-6">
-    <div class="form-check">
-        {!! Form::hidden('status', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('status', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('status', 'Status', ['class' => 'form-check-label']) !!}
-    </div>
+    {!! Form::label('status', 'Status:') !!}
+    {!! Form::text('status', null, ['class' => 'form-control', 'required', 'maxlength' => 100, 'maxlength' => 100]) !!}
 </div>
 
 <!-- Insurance Id Field -->
@@ -74,15 +71,15 @@
 
 <!-- Nurse Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nurse_id', 'Nurse Id:') !!}
+    {!! Form::label('nurse_id', 'Nurse:') !!}
     {!! Form::select('nurse_id', $nurses->mapWithKeys(function ($nurses) {
         return [$nurses->id => $nurses->first_name . ' ' . $nurses->surname . ' ' . $nurses->other_names];
-    })->prepend('Select nurse', ''), null, ['class' => 'form-control', 'required']) !!}
+    })->prepend('Select Nurse', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Doctor Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('doctor_id', 'Doctor Id:') !!}
+    {!! Form::label('doctor_id', 'Doctor:') !!}
     {!! Form::select('Doctor_id', $doctors->mapWithKeys(function ($doctors) {
         return [$doctors->id => $doctors->first_name . ' ' . $doctors->surname . ' ' . $doctors->other_names];
     })->prepend('Select Doctor', ''), null, ['class' => 'form-control', 'required']) !!}

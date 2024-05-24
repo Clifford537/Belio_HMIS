@@ -3,6 +3,8 @@
 namespace App\DataTables\Admin;
 
 use App\Models\Admin\Admission;
+use App\Models\Admin\Bed;
+use App\Models\Admin\Doctor;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -17,8 +19,34 @@ class AdmissionDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
 
-        return $dataTable->addColumn('action', 'admin.admissions.datatables_actions');
+            ->addColumn('doctor', function (Admission $admission) {
+                if ($admission->doctor) {
+                    return trim("{$admission->doctor->first_name} {$admission->doctor->surname} {$admission->doctor->other_names}");
+                }
+                return 'No Doctor';
+            })
+
+            ->addColumn('patient', function (Admission $admission) {
+                $first_name =  $admission->patient->first_name ?? '';
+                $surname =  $admission->patient->surname ?? '';
+                $other_names =  $admission->patient->other_names ?? '';
+
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Patient' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Patient';
+            })
+
+
+            ->addColumn('admission_type', function (Admission $admission) {
+                return $admission->admissionTypes->type ?? 'No Admission Type';
+            })
+
+            ->addColumn('action', 'admin.admissions.datatables_actions');
+        return $dataTable;
     }
 
     /**
@@ -66,12 +94,12 @@ class AdmissionDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'patient_id',
+            'patient',
             'admission_date',
-            'doctor_id',
+            'doctor',
             'reason_for_admission',
             'discharge_status',
-            'admission_types_id'
+            'admission_type'
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Doctor;
 use App\Models\Admin\Physician;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -17,8 +18,13 @@ class PhysicianDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('specialisation', function (Doctor $doctor) {
+                return $doctor->specialisation->specialty ?? 'No Specialization';
+            })
 
-        return $dataTable->addColumn('action', 'Admin.physicians.datatables_actions');
+        ->addColumn('action', 'Admin.physicians.datatables_actions');
+        return $dataTable;
     }
 
     /**
@@ -69,10 +75,10 @@ class PhysicianDataTable extends DataTable
             'first_name',
             'surname',
             'other_names',
-            'specialty',
+            'specialisation',
             'address',
             'clinic_hospital',
-            'procedure_id'
+            'procedure'
         ];
     }
 

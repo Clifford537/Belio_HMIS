@@ -4,6 +4,7 @@
     {!! Form::text('description', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
 </div>
 <div class="form-group col-sm-6">
+    <!-- Nurse -->
     {!! Form::label('nurse_id', 'Nurse:') !!}
     {!! Form::select('nurse_id', $nurses->mapWithKeys(function ($nurse) {
         return [$nurse->id => $nurse->first_name . ' ' . $nurse->surname . ' ' . $nurse->other_names];

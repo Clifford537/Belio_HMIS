@@ -89,9 +89,18 @@ class Doctor extends Model
     {
         return $this->belongsTo(Department::class, 'department_id');
     }
+    public function shift()
+    {
+        return $this->belongsTo(Shift::class, 'shift_id');
+    }
     public function getDateOfBirthAttribute($value)
     {
         return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
+    public function getDayOfTheWeekAttribute()
+    {
+        // Return day of the week based on some logic
+        return $this->attributes['day_of_the_week'];
     }
 }
 

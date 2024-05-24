@@ -2,6 +2,7 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Doctor;
 use App\Models\Admin\Nurse;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -17,8 +18,13 @@ class NurseDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('department', function (Nurse $nurse) {
+                return $nurse->department->name ?? 'No Department';
+            })
 
-        return $dataTable->addColumn('action', 'Admin.nurses.datatables_actions');
+      ->addColumn('action', 'Admin.nurses.datatables_actions');
+        return $dataTable;
     }
 
     /**
@@ -74,8 +80,8 @@ class NurseDataTable extends DataTable
             'phone_number',
             'address',
             'certification',
-            'department_id',
-            'shift_id',
+            'department',
+            'shift',
             'email'
         ];
     }

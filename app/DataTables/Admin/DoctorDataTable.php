@@ -28,6 +28,11 @@ class DoctorDataTable extends DataTable
         ->addColumn('department', function (Doctor $doctor) {
             return $doctor->department->name ?? 'No Department';
         })
+        ->addColumn('shift', function (Doctor $doctor) {
+            return optional($doctor->shift)->dayOfTheWeek ?? 'No Shift';
+        })
+
+
         ->addColumn('action', 'Admin.doctors.datatables_actions');
     return $dataTable;
 }
@@ -88,7 +93,7 @@ class DoctorDataTable extends DataTable
             'lisence_number',
             'years_of_experience',
             'employment_status',
-            'shift_id',
+            'shift',
             'department',
 
         ];

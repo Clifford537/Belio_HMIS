@@ -25,7 +25,7 @@ class AdmissionChecklist extends Model
     ];
     public function ward()
     {
-        return $this->belongsTo(AdmissionChecklist::class, 'ward_id');
+        return $this->belongsTo(ward::class, 'ward_id');
     }
 
 

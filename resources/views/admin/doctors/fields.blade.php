@@ -66,7 +66,7 @@
 <!-- Specialization Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('specialization_id', 'Specialization :') !!}
-    {!! Form::select('specialization_id', $specs->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}     
+    {!! Form::select('specialization_id', $specializations->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 

@@ -13,7 +13,7 @@ class ImagingResult extends Model
         'imaging_date',
         'imaging_results',
         'technician_id',
-        'reporting_radiologist',
+        'radiologist_id',
         'comments',
         'image_link'
     ];
@@ -22,7 +22,7 @@ class ImagingResult extends Model
         'imaging_type' => 'string',
         'imaging_date' => 'datetime',
         'imaging_results' => 'string',
-        'reporting_radiologist' => 'string',
+        'radiologist_id' => 'string',
         'comments' => 'string',
         'image_link' => 'string'
     ];
@@ -32,15 +32,21 @@ class ImagingResult extends Model
         'imaging_date' => 'nullable',
         'imaging_results' => 'nullable|string|max:65535',
         'technician_id' => 'nullable',
-        'reporting_radiologist' => 'nullable|string|max:100',
+        'radiologist_id' => 'nullable|string|max:100',
         'comments' => 'nullable|string|max:65535',
         'image_link' => 'nullable|string|max:100',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
 
-    public function technician(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function technician()
     {
-        return $this->belongsTo(\App\Models\Admin\Technician::class, 'technician_id');
+        return $this->belongsTo(Technician::class, 'technician_id');
     }
+    public function reportingRadiologist()
+    {
+        return $this->belongsTo(Radiologist::class, 'radiologist_id');
+    }
+
+
 }

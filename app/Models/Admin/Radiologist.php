@@ -37,4 +37,8 @@ class Radiologist extends Model
     {
         return $this->belongsTo(\App\Models\Admin\Department::class, 'department_id');
     }
+    public function specialisation()
+    {
+        return $this->belongsTo(Specialisation::class, 'specialization_id');
+    }
 }

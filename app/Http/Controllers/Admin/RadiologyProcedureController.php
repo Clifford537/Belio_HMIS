@@ -6,6 +6,7 @@ use App\DataTables\Admin\RadiologyProcedureDataTable;
 use App\Http\Requests\Admin\CreateRadiologyProcedureRequest;
 use App\Http\Requests\Admin\UpdateRadiologyProcedureRequest;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Admin\Radiologist;
 use App\Repositories\Admin\RadiologyProcedureRepository;
 use Illuminate\Http\Request;
 use Flash;
@@ -13,6 +14,7 @@ use App\Models\Admin\Doctor;
 use App\Models\Admin\Insurance;
 use App\Models\Admin\Patient;
 use App\Models\Admin\Theatre;
+
 
 class RadiologyProcedureController extends AppBaseController
 {
@@ -42,7 +44,8 @@ class RadiologyProcedureController extends AppBaseController
         $patient = Patient::all();
         $insurance =Insurance::all();
         $theatre = Theatre::all();
-        return view('admin.radiology_procedures.create',compact('doctor','patient','insurance','theatre'));
+        $radiologist = Radiologist::all();
+        return view('admin.radiology_procedures.create',compact('doctor','radiologist','patient','insurance','theatre'));
     }
 
     /**

@@ -2,6 +2,10 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Admission;
+use App\Models\Admin\Equipment;
+use App\Models\Admin\Technician;
+use App\Models\Admin\Department;
 use App\Models\Admin\Laboratory;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -17,8 +21,23 @@ class LaboratoryDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('technician', function (Laboratory $laboratory) {
+                if ($laboratory->technician) {
+                    return trim("{$laboratory->technician->first_name} {$laboratory->technician->surname} {$laboratory->technician->other_names}");
+                }
+                return 'No Technician';
+            })
+            ->addColumn('department', function (Laboratory $laboratory) {
+                return $laboratory->department->name ?? 'No Department';
+            })
+        -> addColumn('equipment', function (Equipment $equipment) {
+        return $equipment->equipment->name ?? 'No Equipment';
+    });
 
-        return $dataTable->addColumn('action', 'Admin.laboratories.datatables_actions');
+
+        addColumn('action', 'Admin.laboratories.datatables_actions');
+        return $dataTable;
     }
 
     /**
@@ -67,11 +86,11 @@ class LaboratoryDataTable extends DataTable
     {
         return [
             'name',
-            'department_id',
+            'department',
             'location',
             'status',
-            'equipments_id',
-            'technician_id'
+            'equipment',
+            'technician'
         ];
     }
 

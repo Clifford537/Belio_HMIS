@@ -51,16 +51,13 @@
 
 <!-- Discharge Status Field -->
 <div class="form-group col-sm-6">
-    <div class="form-check">
-        {!! Form::hidden('discharge_status', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('discharge_status', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('discharge_status', 'Discharge Status', ['class' => 'form-check-label']) !!}
-    </div>
+    {!! Form::label('discharge_status', 'Discharge Status:') !!}
+    {!! Form::text('discharge_status', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
 </div>
 
 <!-- Admission Types Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('admission_types_id', 'Admission Types:') !!}
-    {!! Form::select('admission_types_id', $admission_types->pluck('type', 'id')->prepend('Select Admission Type', ''), null, ['class' => 'form-control', 'required']) !!} 
+    {!! Form::select('admission_types_id', $admission_types->pluck('type', 'id')->prepend('Select Admission Type', ''), null, ['class' => 'form-control', 'required']) !!}
 
 </div>
