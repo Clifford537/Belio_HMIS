@@ -4,11 +4,12 @@
     {!! Form::text('name', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
 </div>
 
-<!-- Specialization Field -->
+<!-- Specialization Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('specialization', 'Specialization:') !!}
-    {!! Form::text('specialization', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::label('specialization_id', 'Specialization :') !!}
+    {!! Form::select('specialization_id', $specializations->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
+
 
 <!-- Phone Number Field -->
 <div class="form-group col-sm-6">
@@ -24,7 +25,7 @@
 
 <!-- Department Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('department_id', 'Department Id:') !!}
-    {!! Form::select('department_id', $departments->pluck('name', 'id')->prepend('Select Department', ''), null, ['class' => 'form-control', 'required']) !!} 
+    {!! Form::label('department_id', 'Department:') !!}
+    {!! Form::select('department_id', $departments->pluck('name', 'id')->prepend('Select Department', ''), null, ['class' => 'form-control', 'required']) !!}
 
 </div>

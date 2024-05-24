@@ -2,6 +2,7 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Admission;
 use App\Models\Admin\MedicalRecord;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -17,6 +18,41 @@ class MedicalRecordDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('patient_full_name', function (MedicalRecord $medicalRecord) {
+                $first_name = $medicalRecord->patient->first_name ?? '';
+                $surname = $medicalRecord->patient->surname ?? '';
+                $other_names = $medicalRecord->patient->other_names ?? '';
+
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Patient' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Patient';
+            })
+            ->addColumn('nurse_full_name', function (MedicalRecord $medicalRecord) {
+                $first_name = $medicalRecord->nurse->first_name ?? '';
+                $surname = $medicalRecord->nurse->surname ?? '';
+                $other_names = $medicalRecord->nurse->other_names ?? '';
+
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Nurse' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Nurse';
+            })
+            ->addColumn('doctor_full_name', function (MedicalRecord $medicalRecord) {
+                $first_name = $medicalRecord->patient->first_name ?? '';
+                $surname = $medicalRecord->patient->surname ?? '';
+                $other_names = $medicalRecord->patient->other_names ?? '';
+
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Doctor' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Doctor';
+
+            });
 
         return $dataTable->addColumn('action', 'Admin.medical_records.datatables_actions');
     }
@@ -73,9 +109,9 @@ class MedicalRecordDataTable extends DataTable
             'lab_results',
             'imaging_studies',
             'progress_notes',
-            'patient_id',
-            'nurse_id',
-            'doctor_id'
+            'patient_full_name',
+            'nurse_full_name',
+            'doctor_full_name'
         ];
     }
 

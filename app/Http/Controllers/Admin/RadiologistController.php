@@ -6,6 +6,7 @@ use App\DataTables\Admin\RadiologistDataTable;
 use App\Http\Requests\Admin\CreateRadiologistRequest;
 use App\Http\Requests\Admin\UpdateRadiologistRequest;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Admin\Specialisation;
 use App\Repositories\Admin\RadiologistRepository;
 use Illuminate\Http\Request;
 use Flash;
@@ -36,7 +37,8 @@ class RadiologistController extends AppBaseController
     public function create()
     {
         $departments = Department::all();
-        return view('admin.radiologists.create',compact('departments'));
+        $specializations = Specialisation::all();
+        return view('admin.radiologists.create',compact('departments','specializations'));
     }
 
     /**

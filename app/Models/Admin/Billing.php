@@ -28,4 +28,8 @@ class Billing extends Model
     {
         return $this->belongsTo(\App\Models\Admin\Admission::class, 'admission_id');
     }
+    public function getBillingDateAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
 }

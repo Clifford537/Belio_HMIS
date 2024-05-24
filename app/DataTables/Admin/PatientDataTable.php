@@ -2,6 +2,9 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Admission;
+use App\Models\Admin\Doctor;
+use App\Models\Admin\MedicalRecord;
 use App\Models\Admin\Patient;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -17,8 +20,33 @@ class PatientDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('doctor_full_name', function (Doctor $doctor) {
+                $first_name = $doctor->doctor->first_name ?? '';
+                $surname = $doctor->doctor->surname ?? '';
+                $other_names = $doctor->doctor->other_names ?? '';
 
-        return $dataTable->addColumn('action', 'Admin.patients.datatables_actions');
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Doctor' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Doctor';
+
+            })
+            ->addColumn('nurse_full_name', function (Nurse $nurse) {
+                $first_name = $nurse->nurse->first_name ?? '';
+                $surname = $nurse->nurse->surname ?? '';
+                $other_names = $nurse->nurse->other_names ?? '';
+
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Nurse' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Nurse';
+            })
+
+        ->addColumn('action', 'Admin.patients.datatables_actions');
+        return $dataTable;
     }
 
     /**
@@ -77,9 +105,9 @@ class PatientDataTable extends DataTable
             'emergency_contact_name',
             'emergency_contact_phone',
             'status',
-            'insurance_id',
-            'nurse_id',
-            'doctor_id'
+            'insurance',
+            'nurse_full_name',
+            'doctor_full_name'
         ];
     }
 

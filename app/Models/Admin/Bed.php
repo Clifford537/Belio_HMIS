@@ -21,7 +21,7 @@ class Bed extends Model
 
     protected $casts = [
         'bed_number' => 'string',
-        'occupancy_status' => 'boolean',
+        'occupancy_status' => 'string',
         'bedside_equipment' => 'string',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
@@ -29,7 +29,7 @@ class Bed extends Model
 
     public static array $rules = [
         'bed_number' => 'required|string|max:100',
-        'occupancy_status' => 'nullable|boolean',
+        'occupancy_status' => 'nullable|string|max:100',
         'ward_id' => 'nullable',
         'bed_type_id' => 'nullable',
         'patient_id' => 'nullable',
@@ -38,18 +38,18 @@ class Bed extends Model
         'updated_at' => 'nullable'
     ];
 
-    public function bedType(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function bedType()
     {
-        return $this->belongsTo(\App\Models\Admin\BedType::class, 'bed_type_id');
+        return $this->belongsTo(BedType::class, 'bed_type_id');
     }
 
-    public function patient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function patient()
     {
-        return $this->belongsTo(\App\Models\Admin\Patient::class, 'patient_id');
+        return $this->belongsTo(Patient::class, 'patient_id');
     }
 
-    public function ward(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function ward()
     {
-        return $this->belongsTo(\App\Models\Admin\Ward::class, 'ward_id');
+        return $this->belongsTo(Ward::class, 'ward_id');
     }
 }

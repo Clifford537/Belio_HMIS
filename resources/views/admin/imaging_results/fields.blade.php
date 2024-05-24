@@ -32,15 +32,19 @@
 
 <!-- Technician Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('technician_id', 'Technician Id:') !!}
-    {!! Form::select('technician_id', $technician->pluck('first_name', 'id')->prepend('Select', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('technician', 'Technician:') !!}
+    {!! Form::select('technician', $technician->mapWithKeys(function ($technician) {
+        return [$technician->id => $technician->first_name . ' ' . $technician->surname . ' ' . $technician->other_names];
+    })->prepend('Select Technician', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
+
 
 <!-- Reporting Radiologist Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('reporting_radiologist', 'Reporting Radiologist:') !!}
-    {!! Form::text('reporting_radiologist', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::label('reporting_radiologist', 'Select Radiologist:') !!}
+    {!! Form::select('reporting_radiologist', $reportingRadiologist->pluck('first_name', 'id')->prepend('Select Radiologist', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
+
 
 <!-- Comments Field -->
 <div class="form-group col-sm-12 col-lg-12">

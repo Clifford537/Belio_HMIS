@@ -49,8 +49,8 @@
 
 <!-- Radiologist Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('radiologist_name', 'Radiologist Name:') !!}
-    {!! Form::text('radiologist_name', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::label('radiologist_name', 'Radiologist:') !!}
+    {!! Form::select('$radiologist_name', $radiologist->pluck('name', 'id')->prepend('Select Radiologist', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Procedure Notes Field -->
@@ -73,8 +73,8 @@
 
 <!-- Insurance Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('insurance_id', 'Insurance Id:') !!}
-    {!! Form::select('insurance_id', $insurance->pluck('id', 'id')->prepend('Select Insurance id', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('insurance_id', 'Insurance:') !!}
+    {!! Form::select('insurance_id', $insurance->pluck('id', 'id')->prepend('Select Insurance', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Procedure Location Field -->
@@ -85,6 +85,6 @@
 
 <!-- Theatre Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('theatre_id', 'Theatre Id:') !!}
-    {!! Form::select('theatre_id', $theatre->pluck('name', 'id')->prepend('Select theatre name', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('theatre_id', 'Theatre:') !!}
+    {!! Form::select('theatre_id', $theatre->pluck('name', 'id')->prepend('Select Theatre', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>

@@ -34,5 +34,10 @@ class Laboratory extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+    public function equipment()
+    {
+        return $this->belongsTo(Equipment::class, 'equipment_id');
+    }
+
+
 }

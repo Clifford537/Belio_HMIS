@@ -60,7 +60,10 @@
 
 <!-- Patient Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('patient_id', 'Patient Id:') !!}
-    {!! Form::select('patient_id', $patient->pluck('id', 'id')->prepend('Select', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('patient_id', 'Patient :') !!}
+    {!! Form::select('patient_id', $patients->mapWithKeys(function ($patient) {
+        return [$patient->id => $patient->first_name . ' ' . $patient->surname . ' ' . $patient->other_names];
+    })->prepend('Select Patient', ''), null, ['class' => 'form-control', 'required']) !!}
+
 
 </div>

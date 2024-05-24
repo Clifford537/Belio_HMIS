@@ -59,4 +59,14 @@ class Nurse extends Model
     {
         return $this->hasMany(\App\Models\Admin\Patient::class, 'nurse_id');
     }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id');
+    }
+
+    public function getDateOfBirthAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
 }

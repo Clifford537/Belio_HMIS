@@ -12,6 +12,7 @@ use Flash;
 use App\Models\Admin\Ward;
 use App\Models\Admin\Bed_Type;
 use App\Models\Admin\Patient;
+
 class BedController extends AppBaseController
 {
     /** @var BedRepository $bedRepository*/
@@ -37,12 +38,12 @@ class BedController extends AppBaseController
     public function create()
     {
         $wards = Ward::all(); // plural to indicate collection
-        $bedTypes = Bed_Type::all(); // plural to indicate collection
+        $bedType = Bed_Type::all(); // plural to indicate collection
         $patients = Patient::all(); // plural to indicate collection
-    
-        return view('admin.beds.create', compact('wards', 'bedTypes', 'patients'));
+
+        return view('admin.beds.create', compact('wards', 'bedType', 'patients'));
     }
-    
+
     /**
      * Store a newly created Bed in storage.
      */

@@ -33,7 +33,7 @@ class NextOfKin extends Model
         'first_name' => 'nullable|string|max:100',
         'surname' => 'nullable|string|max:100',
         'other_names' => 'nullable|string|max:100',
-        'gender' => 'nullable|string|max:50',
+        'gender' => 'nullable|string|max:100',
         'phone_number' => 'nullable|string|max:50',
         'address' => 'nullable|string|max:100',
         'email' => 'nullable|string|max:50',
@@ -42,5 +42,5 @@ class NextOfKin extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+
 }

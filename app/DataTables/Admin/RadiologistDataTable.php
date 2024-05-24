@@ -2,6 +2,7 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Doctor;
 use App\Models\Admin\Radiologist;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -17,8 +18,16 @@ class RadiologistDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('department', function (Radiologist $radiologist) {
+                return $radiologist->department->name ?? 'No Department';})
 
-        return $dataTable->addColumn('action', 'Admin.radiologists.datatables_actions');
+            ->addColumn('specialisation', function (Radiologist $radiologist) {
+                return $radiologist->specialisation->specialty ?? 'No Specialization';})
+
+
+        ->addColumn('action', 'Admin.radiologists.datatables_actions');
+                return $dataTable;
     }
 
     /**
@@ -70,7 +79,7 @@ class RadiologistDataTable extends DataTable
             'specialization',
             'phone_number',
             'email',
-            'department_id'
+            'department'
         ];
     }
 

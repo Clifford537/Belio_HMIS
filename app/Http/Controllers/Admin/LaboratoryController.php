@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Flash;
 use App\Models\Admin\Department;
 use App\Models\Admin\Technician;
+use App\Models\Admin\Equipment;
 
 
 class LaboratoryController extends AppBaseController
@@ -39,7 +40,8 @@ class LaboratoryController extends AppBaseController
     {
         $department = Department::all();
         $technician = Technician::all();
-        return view('admin.laboratories.create', compact('department','technician'));
+        $equipment = Equipment::all();
+        return view('admin.laboratories.create', compact('department','technician','equipment'));
     }
 
     /**

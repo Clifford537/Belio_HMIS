@@ -2,6 +2,7 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Admission;
 use App\Models\Admin\Insurance;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -17,6 +18,19 @@ class InsuranceDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('patient_full_name', function (Insurance $insurance) {
+                $first_name = $insurance->patient->first_name ?? '';
+                $surname = $insurance->patient->surname ?? '';
+                $other_names = $insurance->patient->other_names ?? '';
+
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Patient' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Patient';
+            });
+
 
         return $dataTable->addColumn('action', 'Admin.insurances.datatables_actions');
     }
@@ -71,7 +85,7 @@ class InsuranceDataTable extends DataTable
             'coverage_start_date',
             'coverage_end_date',
             'billing_information',
-            'patient_id'
+            'patient_full_name'
         ];
     }
 

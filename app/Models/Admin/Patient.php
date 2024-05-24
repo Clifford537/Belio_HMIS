@@ -36,7 +36,7 @@ class Patient extends Model
         'other_names' => 'string',
         'emergency_contact_name' => 'string',
         'emergency_contact_phone' => 'string',
-        'status' => 'boolean'
+        'status' => 'string'
     ];
 
     public static array $rules = [
@@ -50,7 +50,7 @@ class Patient extends Model
         'other_names' => 'nullable|string|max:100',
         'emergency_contact_name' => 'nullable|string|max:100',
         'emergency_contact_phone' => 'nullable|string|max:100',
-        'status' => 'nullable|boolean',
+        'status' => 'nullable|string|max:100',
         'insurance_id' => 'nullable',
         'nurse_id' => 'nullable',
         'doctor_id' => 'nullable',
@@ -58,14 +58,17 @@ class Patient extends Model
         'updated_at' => 'nullable'
     ];
 
-    public function doctor(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function doctor()
     {
-        return $this->belongsTo(\App\Models\Admin\Doctor::class, 'doctor_id');
+        return $this->belongsTo(Doctor::class, 'doctor_id');
     }
-
-    public function nurse(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function insurance()
     {
-        return $this->belongsTo(\App\Models\Admin\Nurse::class, 'nurse_id');
+        return $this->belongsTo(Insurance::class, 'insurance_id');
+    }
+    public function nurse()
+    {
+        return $this->belongsTo(Nurse::class, 'nurse_id');
     }
 
     public function admissions(): \Illuminate\Database\Eloquent\Relations\HasMany
@@ -82,4 +85,5 @@ class Patient extends Model
     {
         return $this->hasMany(\App\Models\Admin\RadiologyProcedure::class, 'patient_id');
     }
+
 }
