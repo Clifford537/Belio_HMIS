@@ -222,3 +222,10 @@
         <p>Equipment</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('equipment.index') }}" class="nav-link {{ Request::is('equipment*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Equipment</p>
+    </a>
+</li>
