@@ -116,7 +116,7 @@ Route::resource('admin/departments', App\Http\Controllers\Admin\DepartmentContro
         'edit' => 'admin.departments.edit'
     ]);
 
-    
+
 Route::resource('admin/doctors', App\Http\Controllers\Admin\DoctorController::class)
     ->names([
         'index' => 'admin.doctors.index',
@@ -338,3 +338,4 @@ Route::resource('admin/equipment', App\Http\Controllers\Admin\EquipmentControlle
         'create' => 'admin.equipment.create',
         'edit' => 'admin.equipment.edit'
     ]);
+Route::resource('equipment', \App\Http\Controllers\Admin\EquipmentController::class);
