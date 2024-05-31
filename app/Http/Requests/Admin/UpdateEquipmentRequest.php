@@ -25,7 +25,7 @@ class UpdateEquipmentRequest extends FormRequest
     public function rules()
     {
         $rules = Equipment::$rules;
-
+        
         return $rules;
     }
 }

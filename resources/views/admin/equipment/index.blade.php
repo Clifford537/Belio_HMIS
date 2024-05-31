@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
-                       href="{{ route('equipment.create') }}">
+                       href="{{ route('admin.equipment.create') }}">
                         Add New
                     </a>
                 </div>
@@ -24,7 +24,7 @@
         <div class="clearfix"></div>
 
         <div class="card">
-            @include('equipment.table')
+            @include('admin.equipment.table')
         </div>
     </div>
 

@@ -102,6 +102,6 @@
 
 <!-- Laboratory Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('laboratory_id', 'Laboratory Id:') !!}
+    {!! Form::label('laboratory_id', 'Laboratory:') !!}
     {!! Form::number('laboratory_id', null, ['class' => 'form-control']) !!}
 </div>

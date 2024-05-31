@@ -62,6 +62,6 @@ class Equipment extends Model
 
     public function laboratory(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(\App\Models\Laboratory::class, 'laboratory_id');
+        return $this->belongsTo(\App\Models\Admin\Laboratory::class, 'laboratory_id');
     }
 }

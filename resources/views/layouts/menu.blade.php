@@ -216,15 +216,10 @@
 </li>
 
 
-<li class="nav-item">
-    <a href="{{ route('admin.equipment.index') }}" class="nav-link {{ Request::is('admin.equipment*') ? 'active' : '' }}text-success">
-        <i class="fa fa-medkit text-warning" aria-hidden="true"></i>
-        <p>Equipment</p>
-    </a>
-</li>
+
 
 <li class="nav-item">
-    <a href="{{ route('equipment.index') }}" class="nav-link {{ Request::is('equipment*') ? 'active' : '' }}">
+    <a href="{{ route('admin.equipment.index') }}" class="nav-link {{ Request::is('admin.equipment*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-home"></i>
         <p>Equipment</p>
     </a>
