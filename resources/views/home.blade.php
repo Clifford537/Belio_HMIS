@@ -200,53 +200,37 @@
             </div>
 
         </div>
+    </div>
+
+   <!-- Charts Row Container -->
     <div class="row mt-4">
-      <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <div id="graph-container">
-                    <canvas id="myChart" width="400" height="200"></canvas>
+        <!-- Bar Chart -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div id="graph-container">
+                        <canvas id="barChart" width="600" height="300"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
-   </div>
+        <!-- Pie Chart -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <div id="pieChart1-container">
+                        <canvas id="pieChart1" width="400" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-            // Chart.js script to create a bar chart
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Nurses', 'Doctors', 'Beds', 'Departments','Nurse'],
-            datasets: [{
-                label: 'Count',
-                data: [{{ $nurses }}, {{ $totalDoctors }}, {{ $beds }}, {{ $departments  }}, {{ $nurses  }}],
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
         // Function to display EAT time with seconds counting
         function displayEATTime() {
             var now = new Date();
@@ -276,5 +260,82 @@
 
         // Call the function to start displaying EAT time
         displayEATTime();
-    </script>
+          
+        // Bar Chart
+    var barCtx = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(barCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Doctors', 'Nurses', 'Beds', 'Departments', 'Laboratories', 'Patients', 'Physicians', 'Radiologists', 'Technicians', 'Theatres', 'Wards'],
+            datasets: [{
+                label: 'Count',
+                data: [{{ $totalDoctors }}, {{ $nurses }}, {{ $beds }}, {{ $departments }}, {{ $laboratories }}, {{ $patients }}, {{ $physicians }}, {{ $radiologists }}, {{ $technicians }}, {{ $theatres }}, {{ $wards }}],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Pie Chart
+    var pieCtx1 = document.getElementById('pieChart1').getContext('2d');
+    var pieChart1 = new Chart(pieCtx1, {
+        type: 'pie',
+        data: {
+            labels: ['Nurses', 'Doctors', 'Beds', 'Departments'],
+            datasets: [{
+                label: 'Count',
+                data: [{{ $nurses }}, {{ $totalDoctors }}, {{ $beds }}, {{ $departments }}],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
+        
 @endsection
