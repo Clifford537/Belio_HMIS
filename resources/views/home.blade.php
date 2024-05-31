@@ -200,8 +200,8 @@
             </div>
 
         </div>
-        <div class="row mt-4">
-    <div class="col-md-12">
+    <div class="row mt-4">
+      <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <div id="graph-container">
@@ -209,10 +209,10 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+      </div>
+   </div>
 
-    </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
             // Chart.js script to create a bar chart
@@ -220,10 +220,10 @@
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Nurses', 'Doctors', 'Beds', 'Departments'],
+            labels: ['Nurses', 'Doctors', 'Beds', 'Departments','Nurse'],
             datasets: [{
                 label: 'Count',
-                data: [{{ $nurses }}, {{ $totalDoctors }}, {{ $beds }}],
+                data: [{{ $nurses }}, {{ $totalDoctors }}, {{ $beds }}, {{ $departments  }}, {{ $nurses  }}],
                 backgroundColor: [
                     'rgba(75, 192, 192, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
