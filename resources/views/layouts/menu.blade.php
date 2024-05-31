@@ -215,9 +215,6 @@
     </a>
 </li>
 
-
-
-
 <li class="nav-item">
     <a href="{{ route('admin.equipment.index') }}" class="nav-link {{ Request::is('admin.equipment*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-home"></i>
