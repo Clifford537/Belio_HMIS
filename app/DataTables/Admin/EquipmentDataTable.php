@@ -3,8 +3,8 @@
 namespace App\DataTables\Admin;
 
 use App\Models\Admin\Equipment;
-use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Services\DataTable;
+use Yajra\DataTables\EloquentDataTable;
 
 class EquipmentDataTable extends DataTable
 {
@@ -18,13 +18,13 @@ class EquipmentDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.equipment.datatables_actions');
+        return $dataTable->addColumn('action', 'equipment.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Admin\Equipment $model
+     * @param \App\Models\Equipment $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Equipment $model)
@@ -49,10 +49,10 @@ class EquipmentDataTable extends DataTable
                 'order'     => [[0, 'desc']],
                 'buttons'   => [
                     // Enable Buttons as per your need
-                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
+                   ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
+                   ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
+                   ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
                 ],
             ]);

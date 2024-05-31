@@ -2,7 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Bed;
+use App\Models\Admin\Department;
+use App\Models\Admin\Laboratory;
+use App\Models\Admin\Nurse;
+use App\Models\Admin\Patient;
+use App\Models\Admin\Physician;
+use App\Models\Admin\Radiologist;
+use App\Models\Admin\Technician;
+use App\Models\Admin\Theatre;
+use App\Models\Admin\Ward;
 use Illuminate\Http\Request;
+use App\Models\Admin\Doctor;
+
 
 class HomeController extends Controller
 {
@@ -23,7 +35,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-        
+
+        $totalDoctors = Doctor::count();
+        $beds = Bed::count();
+        $departments= Department::count();
+        $laboratories= Laboratory::count();
+        $nurses=Nurse::count();
+        $patients=Patient::count();
+        $physicians=Physician::count();
+        $radiologists=Radiologist::count();
+        $technicians=Technician::count();
+        $theatres=Theatre::count();
+        $wards=Ward::count();
+        return view('home', compact('totalDoctors','nurses','beds','departments','laboratories','nurses','patients','physicians','radiologists','technicians','theatres','wards'));
     }
 }

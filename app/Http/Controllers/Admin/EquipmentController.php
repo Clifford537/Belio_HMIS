@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\EquipmentDataTable;
-use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\Admin\CreateEquipmentRequest;
 use App\Http\Requests\Admin\UpdateEquipmentRequest;
-use App\Repositories\EquipmentRepository;
+use App\Http\Controllers\AppBaseController;
+use App\Repositories\Admin\EquipmentRepository;
+use Illuminate\Http\Request;
 use Flash;
 
 class EquipmentController extends AppBaseController
@@ -24,7 +25,7 @@ class EquipmentController extends AppBaseController
      */
     public function index(EquipmentDataTable $equipmentDataTable)
     {
-    return $equipmentDataTable->render('equipment.index');
+    return $equipmentDataTable->render('Admin.equipment.index');
     }
 
 
@@ -33,7 +34,7 @@ class EquipmentController extends AppBaseController
      */
     public function create()
     {
-        return view('equipment.create');
+        return view('admin.equipment.create');
     }
 
     /**
@@ -47,7 +48,7 @@ class EquipmentController extends AppBaseController
 
         Flash::success('Equipment saved successfully.');
 
-        return redirect(route('equipment.index'));
+        return redirect(route('admin.equipment.index'));
     }
 
     /**
@@ -60,10 +61,10 @@ class EquipmentController extends AppBaseController
         if (empty($equipment)) {
             Flash::error('Equipment not found');
 
-            return redirect(route('equipment.index'));
+            return redirect(route('admin.equipment.index'));
         }
 
-        return view('equipment.show')->with('equipment', $equipment);
+        return view('admin.equipment.show')->with('equipment', $equipment);
     }
 
     /**
@@ -76,10 +77,10 @@ class EquipmentController extends AppBaseController
         if (empty($equipment)) {
             Flash::error('Equipment not found');
 
-            return redirect(route('equipment.index'));
+            return redirect(route('admin.equipment.index'));
         }
 
-        return view('equipment.edit')->with('equipment', $equipment);
+        return view('admin.equipment.edit')->with('equipment', $equipment);
     }
 
     /**
@@ -92,14 +93,14 @@ class EquipmentController extends AppBaseController
         if (empty($equipment)) {
             Flash::error('Equipment not found');
 
-            return redirect(route('equipment.index'));
+            return redirect(route('admin.equipment.index'));
         }
 
         $equipment = $this->equipmentRepository->update($request->all(), $id);
 
         Flash::success('Equipment updated successfully.');
 
-        return redirect(route('equipment.index'));
+        return redirect(route('admin.equipment.index'));
     }
 
     /**
@@ -114,13 +115,13 @@ class EquipmentController extends AppBaseController
         if (empty($equipment)) {
             Flash::error('Equipment not found');
 
-            return redirect(route('equipment.index'));
+            return redirect(route('admin.equipment.index'));
         }
 
         $this->equipmentRepository->delete($id);
 
         Flash::success('Equipment deleted successfully.');
 
-        return redirect(route('equipment.index'));
+        return redirect(route('admin.equipment.index'));
     }
 }

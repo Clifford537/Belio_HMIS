@@ -328,6 +328,8 @@ Route::resource('admin/admission-types', App\Http\Controllers\Admin\AdmissionTyp
         'edit' => 'admin.admissionTypes.edit'
     ]);
 
+
+
 Route::resource('admin/equipment', App\Http\Controllers\Admin\EquipmentController::class)
     ->names([
         'index' => 'admin.equipment.index',
@@ -338,4 +340,3 @@ Route::resource('admin/equipment', App\Http\Controllers\Admin\EquipmentControlle
         'create' => 'admin.equipment.create',
         'edit' => 'admin.equipment.edit'
     ]);
-Route::resource('equipment', \App\Http\Controllers\Admin\EquipmentController::class);
