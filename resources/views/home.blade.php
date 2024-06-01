@@ -23,17 +23,6 @@
                     </div>
                 </div>
             </div>
-                    <div class="col-md-3">
-            <div class="card bg-light mb-4" style="max-width: 300px; border-radius: 20px;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center mb-4">Welcome to Our Hospital Management System outpatient</h5>
-                        </div>
-                        <div>
-                        <a href="{{ route('admin.patients.create') }}" class="btn btn-primary btn-block">Get Started</a>
-                    </div>
-                </div>
-            </div>
-
             <!-- Total Nurses Card -->
             <div class="col-md-3">
                 <div class="card bg-info mb-4 text-white" style="max-width: 500px;">
