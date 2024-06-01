@@ -12,7 +12,7 @@ class Physician extends Model
         'first_name',
         'surname',
         'other_names',
-        'specialty',
+        'specialization_id',
         'address',
         'clinic_hospital',
         'procedure_id'
@@ -31,7 +31,7 @@ class Physician extends Model
         'first_name' => 'nullable|string|max:100',
         'surname' => 'nullable|string|max:100',
         'other_names' => 'nullable|string|max:100',
-        'specialty' => 'nullable|string|max:100',
+        'specialization_id' => 'nullable',
         'address' => 'nullable|string|max:100',
         'clinic_hospital' => 'nullable|string|max:100',
         'created_at' => 'nullable',
@@ -42,5 +42,9 @@ class Physician extends Model
     public function procedure(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(\App\Models\Admin\RadiologyProcedure::class, 'procedure_id');
+    }
+    public function specialisation()
+    {
+        return $this->belongsTo(Specialisation::class, 'specialization_id');
     }
 }

@@ -7,5 +7,5 @@
 <!-- Ward Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ward_id', 'Ward :') !!}
-    {!! Form::select('ward_id', $wards->pluck('description', 'id')->prepend('Select Ward', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::select('ward_id',  $ward->pluck('description', 'id')->prepend('Select Ward', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>

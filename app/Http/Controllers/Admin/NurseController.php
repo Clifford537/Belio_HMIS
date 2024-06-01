@@ -36,9 +36,15 @@ class NurseController extends AppBaseController
      */
     public function create()
     {
+main
+        $departments = Department::all();
+        $shifts = Shift::all();
+        return view('admin.nurses.create',compact('departments','shifts'));
+
         $department = Department::all();
         $shift = Shift::all();
         return view('admin.nurses.create',compact('department','shift'));
+ allan
     }
 
     /**

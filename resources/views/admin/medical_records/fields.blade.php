@@ -49,17 +49,35 @@
 <!-- Patient Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('patient_id', 'Patient:') !!}
-    {!! Form::select('patient_id', $patients->pluck('first_name', 'id')->prepend('Select Patient ', ''), null, ['class' => 'form-control', 'required']) !!}
+    
+    {!! Form::select('patient_id', $patients->mapWithKeys(function ($patient) {
+        return [$patient->id => $patient->first_name . ' ' . $patient->surname . ' ' . $patient->other_names];
+    })->prepend('Select Patient', ''), null, ['class' => 'form-control', 'required']) !!}
+ {!! Form::select('patient_id', $patients->pluck('first_name', 'id')->prepend('Select Patient ', ''), null, ['class' => 'form-control', 'required']) !!} main
 </div>
 
 <!-- Nurse Id Field -->
 <div class="form-group col-sm-6">
+ cliff
+{!! Form::label('nurse_id', 'Nurse:') !!}
+{!! Form::select('nurse_id', $nurses->mapWithKeys(function ($nurses) {
+    return [$nurses->id => $nurses->first_name . ' ' . $nurses->surname . ' ' . $nurses->other_names];
+})->prepend('Select nurse', ''), null, ['class' => 'form-control', 'required']) !!}
+
     {!! Form::label('nurse_id', 'Nurse:') !!}
     {!! Form::select('nurse_id', $nurses->pluck('first_name', 'id')->prepend('Select Nurse', ''), null, ['class' => 'form-control', 'required']) !!}
+ main
 </div>
 
 <!-- Doctor Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('doctor_id', 'Doctor:') !!}
+
+    {!! Form::select('Doctor_id', $doctors->mapWithKeys(function ($doctors) {
+        return [$doctors->id => $doctors->first_name . ' ' . $doctors->surname . ' ' . $doctors->other_names];
+    })->prepend('Select Doctor', ''), null, ['class' => 'form-control', 'required']) !!}
+</div>
+
     {!! Form::select('doctor_id', $doctors->pluck('first_name', 'id')->prepend('Select Doctor ', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
+main

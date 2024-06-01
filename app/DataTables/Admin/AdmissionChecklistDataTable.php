@@ -17,8 +17,13 @@ class AdmissionChecklistDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('ward', function (AdmissionChecklist $admissionChecklist) {
+                return $admissionChecklist->ward->description ?? 'No Ward';
+            })
 
-        return $dataTable->addColumn('action','Admin.admission_checklists.datatables_actions');
+       ->addColumn('action','Admin.admission_checklists.datatables_actions');
+        return $dataTable;
     }
 
     /**
@@ -66,7 +71,7 @@ class AdmissionChecklistDataTable extends DataTable
     {
         return [
             'checklist',
-            'ward_id'
+            'ward'
         ];
     }
 

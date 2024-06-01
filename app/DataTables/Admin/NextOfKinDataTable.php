@@ -2,6 +2,8 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Admission;
+use App\Models\Admin\Bed;
 use App\Models\Admin\NextOfKin;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -17,6 +19,21 @@ class NextOfKinDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+
+        ->addColumn('patient', function (NextOfKin $nextOfKin) {
+        $first_name =  $nextOfKin->patient->first_name ?? '';
+        $surname =  $nextOfKin->patient->surname ?? '';
+        $other_names =  $nextOfKin->patient->other_names ?? '';
+
+        // Concatenate the names with a space between them
+        $full_name = trim("$first_name $surname $other_names");
+
+        // Return 'No Patient' if full name is empty
+        return $full_name !== '' ? $full_name : 'No Patient';
+    });
+
+
 
         return $dataTable->addColumn('action', 'Admin.next_of_kins.datatables_actions');
     }
@@ -73,7 +90,7 @@ class NextOfKinDataTable extends DataTable
             'phone_number',
             'address',
             'email',
-            'patient_id'
+            'patient'
         ];
     }
 

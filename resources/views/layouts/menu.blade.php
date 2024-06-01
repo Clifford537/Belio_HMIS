@@ -39,7 +39,7 @@
 
 <li class="nav-item">
     <a href="{{ route('admin.bedTypes.index') }}" class="nav-link {{ Request::is('admin.bedTypes*') ? 'active' : '' }} text-success">
-    
+
     <i class="fa fa-bed text-warning" aria-hidden="true"></i>
         <p>Bed  Types</p>
     </a>
@@ -83,7 +83,7 @@
 
 <li class="nav-item">
     <a href="{{ route('admin.wardTypes.index') }}" class="nav-link {{ Request::is('admin.wardTypes*') ? 'active' : '' }} text-success">
-   
+
     <i class="fa fa-bed text-warning" aria-hidden="true"></i>
         <p>Ward Types</p>
     </a>
@@ -215,3 +215,12 @@
     </a>
 </li>
 
+
+
+
+<li class="nav-item">
+    <a href="{{ route('admin.equipment.index') }}" class="nav-link {{ Request::is('admin.equipment*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Equipment</p>
+    </a>
+</li>

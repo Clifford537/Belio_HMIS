@@ -18,8 +18,8 @@
 
 <!-- Specialty Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('specialty', 'Specialty:') !!}
-    {!! Form::text('specialty', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::label('specialization_id', 'Specialization :') !!}
+    {!! Form::select('specialization_id', $specs->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Address Field -->
@@ -36,6 +36,6 @@
 
 <!-- Procedure Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('procedure_id', 'Procedure Id:') !!}
-    {!! Form::number('procedure_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('procedure_id', 'Procedure:') !!}
+    {!! Form::select('procedure_id', $procedures->pluck('procedure_code', 'id')->prepend('Select Procedure ', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>

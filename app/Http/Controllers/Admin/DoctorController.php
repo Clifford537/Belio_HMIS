@@ -23,7 +23,7 @@ class DoctorController extends AppBaseController
     {
         $this->doctorRepository = $doctorRepo;
     }
-    
+
     /**
      * Display a listing of the Doctor.
      */
@@ -39,12 +39,12 @@ class DoctorController extends AppBaseController
     public function create()
     {
 
-        $specs = Specialisation::all();
+        $specializations = Specialisation::all();
         $department = Department::all();
         $emp_status = EmploymentStatus::all();
         $shift = Shift::all();
 
-        return view('admin.doctors.create',compact('specs','department','emp_status','shift'));
+        return view('admin.doctors.create',compact('specializations','department','emp_status','shift'));
     }
 
     /**
@@ -134,5 +134,5 @@ class DoctorController extends AppBaseController
 
         return redirect(route('admin.doctors.index'));
     }
-    
+
 }

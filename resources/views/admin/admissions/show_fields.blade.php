@@ -1,6 +1,6 @@
 <!-- Patient Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('patient_id', 'Patient Id:') !!}
+    {!! Form::label('patient_full_name', 'Patient Id:') !!}
     <p>{{ $admission->patient_id }}</p>
 </div>
 

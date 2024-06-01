@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
-use App\Models\Admin\Doctor--fromTable;
+use App\Models\Admin\Equipment;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateDoctor--fromTableRequest extends FormRequest
+class UpdateEquipmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,8 @@ class CreateDoctor--fromTableRequest extends FormRequest
      */
     public function rules()
     {
-        return Doctor--fromTable::$rules;
+        $rules = Equipment::$rules;
+        
+        return $rules;
     }
 }

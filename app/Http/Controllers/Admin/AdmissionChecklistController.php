@@ -35,8 +35,8 @@ class AdmissionChecklistController extends AppBaseController
      */
     public function create()
     {
-        $wards = Ward::all();
-        return view('admin.admission_checklists.create',compact('wards'));
+        $ward = Ward::all();
+        return view('admin.admission_checklists.create',compact('ward'));
     }
 
     /**

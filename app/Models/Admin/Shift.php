@@ -28,4 +28,8 @@ class Shift extends Model
     {
         return $this->hasMany(\App\Models\Admin\Nurse::class, 'shift_id');
     }
+    public function getDayOfWeekAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
 }

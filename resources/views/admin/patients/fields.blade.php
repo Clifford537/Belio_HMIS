@@ -1,3 +1,20 @@
+<!-- First Name Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('first_name', 'First Name:') !!}
+    {!! Form::text('first_name', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+</div>
+
+<!-- Surname Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('surname', 'Surname:') !!}
+    {!! Form::text('surname', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+</div>
+
+<!-- Other Names Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('other_names', 'Other Names:') !!}
+    {!! Form::text('other_names', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+</div>
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Gender', 'Gender:') !!}
@@ -28,24 +45,6 @@
     {!! Form::text('blood_group', null, ['class' => 'form-control', 'maxlength' => 10, 'maxlength' => 10]) !!}
 </div>
 
-<!-- First Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('first_name', 'First Name:') !!}
-    {!! Form::text('first_name', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
-</div>
-
-<!-- Surname Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('surname', 'Surname:') !!}
-    {!! Form::text('surname', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
-</div>
-
-<!-- Other Names Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('other_names', 'Other Names:') !!}
-    {!! Form::text('other_names', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
-</div>
-
 <!-- Emergency Contact Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('emergency_contact_name', 'Emergency Contact Name:') !!}
@@ -60,27 +59,28 @@
 
 <!-- Status Field -->
 <div class="form-group col-sm-6">
-    <div class="form-check">
-        {!! Form::hidden('status', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('status', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('status', 'Status', ['class' => 'form-check-label']) !!}
-    </div>
+    {!! Form::label('status', 'Status:') !!}
+    {!! Form::text('status', null, ['class' => 'form-control', 'required', 'maxlength' => 100, 'maxlength' => 100]) !!}
 </div>
 
 <!-- Insurance Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('insurance_id', 'Insurance Id:') !!}
-    {!! Form::number('insurance_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('insurance_id', 'Insurance:') !!}
+    {!! Form::select('insurance_id', $insurances->pluck('id', 'id')->prepend('Select Insurance', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Nurse Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nurse_id', 'Nurse Id:') !!}
-    {!! Form::number('nurse_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('nurse_id', 'Nurse:') !!}
+    {!! Form::select('nurse_id', $nurses->mapWithKeys(function ($nurses) {
+        return [$nurses->id => $nurses->first_name . ' ' . $nurses->surname . ' ' . $nurses->other_names];
+    })->prepend('Select Nurse', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Doctor Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('doctor_id', 'Doctor Id:') !!}
-    {!! Form::number('doctor_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('doctor_id', 'Doctor:') !!}
+    {!! Form::select('Doctor_id', $doctors->mapWithKeys(function ($doctors) {
+        return [$doctors->id => $doctors->first_name . ' ' . $doctors->surname . ' ' . $doctors->other_names];
+    })->prepend('Select Doctor', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>

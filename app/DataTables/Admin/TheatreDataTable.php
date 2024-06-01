@@ -3,6 +3,7 @@
 namespace App\DataTables\Admin;
 
 use App\Models\Admin\Theatre;
+use App\Models\Admin\Ward;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -17,8 +18,16 @@ class TheatreDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('doctor_incharge', function (Theatre $theatre) {
+                if ($theatre->doctor) {
+                    return trim("{$theatre->doctor->first_name} {$theatre->doctor->surname} {$theatre->doctor->other_names}");
+                }
+                return 'No Doctor';
+            })
 
-        return $dataTable->addColumn('action', 'Admin.theatres.datatables_actions');
+        ->addColumn('action', 'Admin.theatres.datatables_actions');
+        return $dataTable;
     }
 
     /**

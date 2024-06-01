@@ -15,12 +15,27 @@ class DoctorDataTable extends DataTable
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
-    {
-        $dataTable = new EloquentDataTable($query);
+{
+    $dataTable = new EloquentDataTable($query);
+    $dataTable
+        ->addColumn('specialisation', function (Doctor $doctor) {
+            return $doctor->specialisation->specialty ?? 'No Specialization';
+        })
+        ->addColumn('employment_status', function (Doctor $doctor) {
+            return $doctor->employmentStatus->status ?? 'No Status';
 
-        return $dataTable->addColumn('action', 'Admin.doctors.datatables_actions');
-    }
+        })
+        ->addColumn('department', function (Doctor $doctor) {
+            return $doctor->department->name ?? 'No Department';
+        })
+        ->addColumn('shift', function (Doctor $doctor) {
+            return optional($doctor->shift)->dayOfTheWeek ?? 'No Shift';
+        })
 
+
+        ->addColumn('action', 'Admin.doctors.datatables_actions');
+    return $dataTable;
+}
     /**
      * Get query source of dataTable.
      *
@@ -71,16 +86,16 @@ class DoctorDataTable extends DataTable
             'phone_number',
             'address',
             'email',
-            'specialization_id',
+            'specialisation',
             'first_name',
             'surname',
             'other_names',
             'lisence_number',
             'years_of_experience',
-            'employment_status_id',
-            'shift_id',
-            'department_id',
-            
+            'employment_status',
+            'shift',
+            'department',
+
         ];
     }
 

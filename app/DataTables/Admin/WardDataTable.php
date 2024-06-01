@@ -2,6 +2,8 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Laboratory;
+use App\Models\Admin\Nurse;
 use App\Models\Admin\Ward;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -21,8 +23,15 @@ class WardDataTable extends DataTable
             ->addColumn('ward_type', function ($ward) {
                 return $ward->wardType->type;  })
 
-                ->addColumn('nurse_full_name', function ($nurse) {
-                    return $nurse->Nurse->first_name;  })
+
+            ->addColumn('nurse_full_name', function (Ward $ward) {
+                if ($ward->nurse) {
+                    return trim("{$ward->nurse->first_name} {$ward->nurse->surname} {$ward->nurse->other_names}");
+                }
+                return 'No Nurse';
+            })
+
+
 
             ->addColumn('action', 'Admin.wards.datatables_actions');
         return $dataTable;

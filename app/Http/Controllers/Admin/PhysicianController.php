@@ -9,6 +9,8 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\Admin\PhysicianRepository;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Admin\Specialisation;
+use App\Models\Admin\RadiologyProcedure;
 
 class PhysicianController extends AppBaseController
 {
@@ -34,7 +36,9 @@ class PhysicianController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.physicians.create');
+        $procedures = RadiologyProcedure::all();
+        $specs = Specialisation::all();
+        return view('admin.physicians.create',compact('procedures','specs'));
     }
 
     /**

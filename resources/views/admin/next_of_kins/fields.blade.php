@@ -40,8 +40,17 @@
     {!! Form::email('email', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
 </div>
 
-<!-- Patient Id Field -->
+<!-- Patient ID Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('patient_id', 'Patient :') !!}
+
+    {!! Form::select('patient_id', $patients->mapWithKeys(function ($patient) {
+        return [$patient->id => $patient->first_name . ' ' . $patient->surname . ' ' . $patient->other_names];
+    })->prepend('Select Patient', ''), null, ['class' => 'form-control', 'required']) !!}
+
+
+</div>
+
     {!! Form::select('patient_id', $patient->pluck('first_name', 'id')->prepend('Select Patient', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
+ main

@@ -45,6 +45,25 @@ class MedicalRecord extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
+    public function getVisitDateAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
 
-    
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class, 'patient_id');
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class, 'doctor_id');
+    }
+
+    public function nurse()
+    {
+        return $this->belongsTo(Nurse::class, 'nurse_id');
+    }
+
+
 }

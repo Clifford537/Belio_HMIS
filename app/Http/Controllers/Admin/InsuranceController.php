@@ -35,9 +35,9 @@ class InsuranceController extends AppBaseController
      */
     public function create()
     {
-        $patient= Patient::all();
+        $patients = Patient::all();
 
-        return view('admin.insurances.create',compact('patient'));
+        return view('admin.insurances.create',compact('patients'));
     }
 
     /**

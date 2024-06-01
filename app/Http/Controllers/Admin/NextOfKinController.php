@@ -34,8 +34,8 @@ class NextOfKinController extends AppBaseController
      */
     public function create()
     {
-        $patient = Patient::all();
-        return view('admin.next_of_kins.create',compact('patient'));
+        $patients = Patient::all();
+        return view('admin.next_of_kins.create',compact('patients'));
     }
 
     /**

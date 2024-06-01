@@ -2,7 +2,9 @@
 
 namespace App\DataTables\Admin;
 
+use App\Models\Admin\Admission;
 use App\Models\Admin\Bed;
+use App\Models\Admin\Ward;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -17,8 +19,31 @@ class BedDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable
+            ->addColumn('patient', function (Bed $bed) {
+                $first_name =  $bed->patient->first_name ?? '';
+                $surname =  $bed->patient->surname ?? '';
+                $other_names =  $bed->patient->other_names ?? '';
 
-        return $dataTable->addColumn('action', 'Admin.beds.datatables_actions');
+                // Concatenate the names with a space between them
+                $full_name = trim("$first_name $surname $other_names");
+
+                // Return 'No Patient' if full name is empty
+                return $full_name !== '' ? $full_name : 'No Patient';
+            })
+            ->addColumn('ward', function ($ward) {
+                return $ward->ward->description;  })
+
+            ->addColumn('bed_type', function (Bed $bed) {
+                return $bed->bedTypes->type ?? 'No Bed Type';
+            })
+
+
+
+
+->addColumn('action', 'Admin.beds.datatables_actions');
+
+        return $dataTable;
     }
 
     /**
@@ -68,9 +93,9 @@ class BedDataTable extends DataTable
         return [
             'bed_number',
             'occupancy_status',
-            'ward_id',
-            'bed_type_id',
-            'patient_id',
+            'ward',
+            'bed_type',
+            'patient',
             'bedside_equipment',
         ];
     }

@@ -116,7 +116,7 @@ Route::resource('admin/departments', App\Http\Controllers\Admin\DepartmentContro
         'edit' => 'admin.departments.edit'
     ]);
 
-    
+
 Route::resource('admin/doctors', App\Http\Controllers\Admin\DoctorController::class)
     ->names([
         'index' => 'admin.doctors.index',
@@ -326,4 +326,17 @@ Route::resource('admin/admission-types', App\Http\Controllers\Admin\AdmissionTyp
         'destroy' => 'admin.admissionTypes.destroy',
         'create' => 'admin.admissionTypes.create',
         'edit' => 'admin.admissionTypes.edit'
+    ]);
+
+
+
+Route::resource('admin/equipment', App\Http\Controllers\Admin\EquipmentController::class)
+    ->names([
+        'index' => 'admin.equipment.index',
+        'store' => 'admin.equipment.store',
+        'show' => 'admin.equipment.show',
+        'update' => 'admin.equipment.update',
+        'destroy' => 'admin.equipment.destroy',
+        'create' => 'admin.equipment.create',
+        'edit' => 'admin.equipment.edit'
     ]);
