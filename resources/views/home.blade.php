@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+   <div class="container-fluid bg-light" style="padding: 20px; border-radius: 50px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="row">
             <div class="col-md-6">
                 <h1 class="text-left text-white text-success" style="font-size: 24px;">Dashboard</h1>
@@ -12,9 +12,31 @@
         </div>
 
         <div class="row mt-4">
+            
+        <div class="col-md-3">
+            <div class="card bg-light mb-4" style="max-width: 300px; border-radius: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4"><p>Welcome to Our Hospital Management System inpatient</p></h5>
+                        </div>
+                        <div>
+                        <a href="{{ route('admin.patients.create') }}" class="btn btn-primary btn-block">Get Started</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-md-3">
+            <div class="card bg-light mb-4" style="max-width: 300px; border-radius: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Welcome to Our Hospital Management System outpatient</h5>
+                        </div>
+                        <div>
+                        <a href="{{ route('admin.patients.create') }}" class="btn btn-primary btn-block">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Total Nurses Card -->
             <div class="col-md-3">
-                <div class="card bg-info mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-info mb-4 text-white" style="max-width: 500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $nurses }}</h2>

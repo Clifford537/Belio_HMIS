@@ -1,6 +1,13 @@
 <!-- need to remove -->
 
 <li class="nav-item">
+    <a href="{{ route('admin.patients.create') }}" class="nav-link {{ Request::is('admin.equipment*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Patient Onboarding</p>
+    </a>
+</li>
+
+<li class="nav-item">
     <a href="{{ route('home') }}" class="nav-link {{ Request::is('home') ? 'active' : '' }} text-success" >
     <i class="fa fa-tachometer text-warning" aria-hidden="true"></i>
         <p>Dashboard</p>
@@ -221,3 +228,4 @@
         <p>Equipment</p>
     </a>
 </li>
+

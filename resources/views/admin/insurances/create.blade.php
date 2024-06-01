@@ -32,6 +32,7 @@
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('admin.insurances.index') }}" class="btn btn-default"> Cancel </a>
+                <a href="{{ route('admin.billings.create') }}" class="btn btn-default bg-primary"> Next </a>
             </div>
 
             {!! Form::close() !!}
