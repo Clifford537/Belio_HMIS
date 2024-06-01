@@ -66,10 +66,17 @@
 <!-- Specialization Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('specialization_id', 'Specialization :') !!}
+ main
     {!! Form::select('specialization_id', $specializations->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 
+
+    {!! Form::select('specialization_id', $specs->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}     
+</div>
+
+
+ allan
 
 <!-- Department Id Field -->
 <div class="form-group col-sm-6">
@@ -99,4 +106,8 @@
 <div class="form-group col-sm-6">
     {!! Form::label('shift_id', 'Shift :') !!}
     {!! Form::select('shift_id', $shift->pluck('day_of_week', 'id')->prepend('Select Shift', ''), null, ['class' => 'form-control', 'required']) !!}
+ main
 </div>
+
+</div>
+
