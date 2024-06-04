@@ -77,6 +77,8 @@ class NurseController extends AppBaseController
     public function edit($id)
     {
         $nurse = $this->nurseRepository->find($id);
+        $departments = Department::all();
+        $shifts = Shift::all();
 
         if (empty($nurse)) {
             Flash::error('Nurse not found');
@@ -84,7 +86,7 @@ class NurseController extends AppBaseController
             return redirect(route('admin.nurses.index'));
         }
 
-        return view('admin.nurses.edit')->with('nurse', $nurse);
+        return view('admin.nurses.edit',compact('departments','shifts'))->with('nurse', $nurse);
     }
 
     /**

@@ -84,6 +84,11 @@ class RadiologyProcedureController extends AppBaseController
     public function edit($id)
     {
         $radiologyProcedure = $this->radiologyProcedureRepository->find($id);
+        $doctor = Doctor::all();
+        $patient = Patient::all();
+        $insurance =Insurance::all();
+        $theatre = Theatre::all();
+        $radiologist = Radiologist::all();
 
         if (empty($radiologyProcedure)) {
             Flash::error('Radiology Procedure not found');
@@ -91,7 +96,7 @@ class RadiologyProcedureController extends AppBaseController
             return redirect(route('admin.radiologyProcedures.index'));
         }
 
-        return view('admin.radiology_procedures.edit')->with('radiologyProcedure', $radiologyProcedure);
+        return view('admin.radiology_procedures.edit',compact('doctor','patient','insurance','theatre','radiologist'))->with('radiologyProcedure', $radiologyProcedure);
     }
 
     /**

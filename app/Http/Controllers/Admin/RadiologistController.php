@@ -77,6 +77,8 @@ class RadiologistController extends AppBaseController
     public function edit($id)
     {
         $radiologist = $this->radiologistRepository->find($id);
+        $departments = Department::all();
+        $specializations = Specialisation::all();
 
         if (empty($radiologist)) {
             Flash::error('Radiologist not found');
@@ -84,7 +86,7 @@ class RadiologistController extends AppBaseController
             return redirect(route('admin.radiologists.index'));
         }
 
-        return view('admin.radiologists.edit')->with('radiologist', $radiologist);
+        return view('admin.radiologists.edit',compact('departments','specializations'))->with('radiologist', $radiologist);
     }
 
     /**

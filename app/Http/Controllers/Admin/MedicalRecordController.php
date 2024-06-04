@@ -79,6 +79,9 @@ class MedicalRecordController extends AppBaseController
     public function edit($id)
     {
         $medicalRecord = $this->medicalRecordRepository->find($id);
+        $patients =Patient::all();
+        $doctors = Doctor::all();
+        $nurses = Nurse::all();
 
         if (empty($medicalRecord)) {
             Flash::error('Medical Record not found');
@@ -86,7 +89,7 @@ class MedicalRecordController extends AppBaseController
             return redirect(route('admin.medicalRecords.index'));
         }
 
-        return view('admin.medical_records.edit')->with('medicalRecord', $medicalRecord);
+        return view('admin.medical_records.edit',compact('patients','doctors','nurses'))->with('medicalRecord', $medicalRecord);
     }
 
     /**

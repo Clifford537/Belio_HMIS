@@ -76,6 +76,7 @@ class DischargeController extends AppBaseController
     public function edit($id)
     {
         $discharge = $this->dischargeRepository->find($id);
+        $admissions = Admission::all();
 
         if (empty($discharge)) {
             Flash::error('Discharge not found');
@@ -83,7 +84,7 @@ class DischargeController extends AppBaseController
             return redirect(route('admin.discharges.index'));
         }
 
-        return view('admin.discharges.edit')->with('discharge', $discharge);
+        return view('admin.discharges.edit',compact('admissions'))->with('discharge', $discharge);
     }
 
     /**

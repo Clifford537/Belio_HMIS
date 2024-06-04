@@ -79,6 +79,9 @@ class PatientController extends AppBaseController
     public function edit($id)
     {
         $patient = $this->patientRepository->find($id);
+        $insurances =Insurance::all();
+        $doctors = Doctor::all();
+        $nurses = Nurse::all();
 
         if (empty($patient)) {
             Flash::error('Patient not found');
@@ -86,7 +89,7 @@ class PatientController extends AppBaseController
             return redirect(route('admin.patients.index'));
         }
 
-        return view('admin.patients.edit')->with('patient', $patient);
+        return view('admin.patients.edit',compact('insurances','doctors','nurses'))->with('patient', $patient);
     }
 
     /**

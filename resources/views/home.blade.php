@@ -12,14 +12,20 @@
         </div>
 
         <div class="row mt-4">
-            
+
         <div class="col-md-3">
-            <div class="card bg-light mb-4" style="max-width: 300px; border-radius: 20px;">
+            <div class="card bg-light mb-3" style="max-width: 500px; ">
                     <div class="card-body">
-                        <h5 class="card-title text-center mb-4"><p>Welcome to Our Hospital Management System inpatient</p></h5>
+                        <h5 class="card-title d-flex flex-column justify-content-center align-items-center">
+                            <p class="card-text" style="font-size:20px;">
+                                Welcome to Our Hospital Management System inpatient</p></h5>
                         </div>
+                <div class="card-body">
+                    <a href="{{ route('admin.patients.create') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">Get Started</a>
+                    </a>
+                </div>
                         <div>
-                        <a href="{{ route('admin.patients.create') }}" class="btn btn-primary btn-block">Get Started</a>
+
                     </div>
                 </div>
             </div>
@@ -42,7 +48,7 @@
 
             <!-- Total Doctors Card -->
             <div class="col-md-3">
-                <div class="card bg-success mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-success mb-3 text-white" style="max-width: 500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $totalDoctors }}</h2>
@@ -59,7 +65,7 @@
 
             <!-- Total Beds Card -->
             <div class="col-md-3">
-                <div class="card bg-warning mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-warning mb-3 text-white" style="max-width: 500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $beds }}</h2>
@@ -76,7 +82,7 @@
 
             <!-- Total Department Card -->
             <div class="col-md-3">
-                <div class="card bg-danger mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-danger mb-3 text-white" style="max-width: 500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $departments }}</h2>
@@ -93,7 +99,7 @@
 
             <!-- Total Laboratory Card -->
             <div class="col-md-3">
-                <div class="card bg-pink text-white" style="max-width: 18rem;">
+                <div class="card bg-pink text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $laboratories }}</h2>
@@ -110,7 +116,7 @@
 
             <!-- Total Patient Card -->
             <div class="col-md-3">
-                <div class="card bg-purple mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-purple mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $patients }}</h2>
@@ -127,7 +133,7 @@
 
             <!-- Total Physician Card -->
             <div class="col-md-3">
-                <div class="card bg-dark mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-dark mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $physicians }}</h2>
@@ -144,7 +150,7 @@
 
             <!-- Total Radiologist Card -->
             <div class="col-md-3">
-                <div class="card bg-lightblue mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-lightblue mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $radiologists }}</h2>
@@ -161,7 +167,7 @@
 
             <!-- Total Technician Card -->
             <div class="col-md-3">
-                <div class="card bg-gradient-green mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-gradient-green mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $technicians }}</h2>
@@ -178,7 +184,7 @@
 
             <!-- Total Theatre Card -->
             <div class="col-md-3">
-                <div class="card bg-primary mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-primary mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $theatres }}</h2>
@@ -195,7 +201,7 @@
 
             <!-- Total Ward Card -->
             <div class="col-md-3">
-                <div class="card bg-fuchsia mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-fuchsia mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $wards }}</h2>
@@ -271,7 +277,7 @@
 
         // Call the function to start displaying EAT time
         displayEATTime();
-          
+
         // Bar Chart
     var barCtx = document.getElementById('barChart').getContext('2d');
     var barChart = new Chart(barCtx, {
@@ -353,5 +359,5 @@
             }
     });
 </script>
-        
+
 @endsection

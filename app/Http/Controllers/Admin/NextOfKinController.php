@@ -74,6 +74,7 @@ class NextOfKinController extends AppBaseController
     public function edit($id)
     {
         $nextOfKin = $this->nextOfKinRepository->find($id);
+        $patients = Patient::all();
 
         if (empty($nextOfKin)) {
             Flash::error('Next Of Kin not found');
@@ -81,7 +82,7 @@ class NextOfKinController extends AppBaseController
             return redirect(route('admin.nextOfKins.index'));
         }
 
-        return view('admin.next_of_kins.edit')->with('nextOfKin', $nextOfKin);
+        return view('admin.next_of_kins.edit',compact('patients'))->with('nextOfKin', $nextOfKin);
     }
 
     /**

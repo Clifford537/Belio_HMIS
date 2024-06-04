@@ -78,6 +78,8 @@ class WardController extends AppBaseController
     public function edit($id)
     {
         $ward = $this->wardRepository->find($id);
+        $wardTypes = WardType::all();
+        $nurses = Nurse::all();
 
         if (empty($ward)) {
             Flash::error('Ward not found');
@@ -85,7 +87,7 @@ class WardController extends AppBaseController
             return redirect(route('admin.wards.index'));
         }
 
-        return view('admin.wards.edit')->with('ward', $ward);
+        return view('admin.wards.edit',compact('wardTypes','nurses'))->with('ward', $ward);
     }
 
     /**
