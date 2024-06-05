@@ -41,6 +41,7 @@
 </div>
 
 
+
 <!-- Date Of Birth Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('date_of_birth', 'Date Of Birth:') !!}
@@ -64,12 +65,20 @@
 <!-- Department Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('department_id', 'Department :') !!}
+
     {!! Form::select('department_id', $departments->pluck('name', 'id')->prepend('Select Department', ''), null, ['class' => 'form-control', 'required']) !!}
+
+    {!! Form::select('department_id', $department->pluck('name', 'id')->prepend('Select Department', ''), null, ['class' => 'form-control', 'required']) !!}
+
 </div>
 
 <!-- Shift Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('shift_id', 'Shift :') !!}
+
     {!! Form::select('shift_id', $shifts->pluck('day_of_week', 'id')->prepend('Select Shift', ''), null, ['class' => 'form-control', 'required']) !!}
+
+    {!! Form::select('shift_id', $shift->pluck('day_of_week', 'id')->prepend('Select Shift', ''), null, ['class' => 'form-control', 'required']) !!}
+
 </div>
 
