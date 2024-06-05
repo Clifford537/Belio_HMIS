@@ -37,8 +37,8 @@ class ImagingResultController extends AppBaseController
     public function create()
     {
         $technician = Technician::all();
-        $reportingRadiologist= Radiologist::all();
-        return view('admin.imaging_results.create',compact('technician','reportingRadiologist'));
+        $radiologist= Radiologist::all();
+        return view('admin.imaging_results.create',compact('technician','radiologist'));
     }
 
     /**

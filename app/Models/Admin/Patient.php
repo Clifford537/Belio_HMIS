@@ -41,7 +41,7 @@ class Patient extends Model
 
     public static array $rules = [
         'gender' => 'required|string|max:100',
-        'phone_number' => 'nullable|string|max:50',
+        'phone_number' => 'required|nullable|string|max:50',
         'address' => 'required|string|max:50',
         'email' => 'nullable|string|max:50',
         'blood_group' => 'nullable|string|max:10',

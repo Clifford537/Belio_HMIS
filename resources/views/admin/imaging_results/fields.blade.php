@@ -41,8 +41,10 @@
 
 <!-- Reporting Radiologist Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('reporting_radiologist', 'Select Radiologist:') !!}
-    {!! Form::select('reporting_radiologist', $reportingRadiologist->pluck('first_name', 'id')->prepend('Select Radiologist', ''), null, ['class' => 'form-control', 'required']) !!}
+{!! Form::label('$radiologist', 'Radiologist:') !!}
+{!! Form::select('$radiologist', $radiologist->mapWithKeys(function ($radiologist) {
+    return [$radiologist->id => $radiologist->first_name . ' ' . $radiologist->surname . ' ' . $radiologist->other_names];
+})->prepend('Select Radiologist', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 

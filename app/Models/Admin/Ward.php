@@ -20,7 +20,7 @@ class Ward extends Model
     protected $casts = [
         'description' => 'string',
         'location' => 'string',
-        'status' => 'boolean'
+        'status' => 'string'
     ];
 
     public static array $rules = [
@@ -28,7 +28,7 @@ class Ward extends Model
         'ward_type_id' => 'nullable',
         'capacity' => 'nullable',
         'location' => 'nullable|string|max:100',
-        'status' => 'nullable|boolean',
+        'status' => 'nullable|string|max:100',
         'nurse_id' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

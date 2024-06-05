@@ -80,6 +80,9 @@ class LaboratoryController extends AppBaseController
     public function edit($id)
     {
         $laboratory = $this->laboratoryRepository->find($id);
+        $department = Department::all();
+        $technician = Technician::all();
+        $equipment = Equipment::all();
 
         if (empty($laboratory)) {
             Flash::error('Laboratory not found');
@@ -87,7 +90,7 @@ class LaboratoryController extends AppBaseController
             return redirect(route('admin.laboratories.index'));
         }
 
-        return view('admin.laboratories.edit')->with('laboratory', $laboratory);
+        return view('admin.laboratories.edit',compact('department','technician','equipment'))->with('laboratory', $laboratory);
     }
 
     /**

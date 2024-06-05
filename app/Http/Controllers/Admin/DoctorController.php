@@ -83,6 +83,10 @@ class DoctorController extends AppBaseController
     public function edit($id)
     {
         $doctor = $this->doctorRepository->find($id);
+        $specializations = Specialisation::all();
+        $department = Department::all();
+        $emp_status = EmploymentStatus::all();
+        $shift = Shift::all();
 
         if (empty($doctor)) {
             Flash::error('Doctor not found');
@@ -90,7 +94,7 @@ class DoctorController extends AppBaseController
             return redirect(route('admin.doctors.index'));
         }
 
-        return view('admin.doctors.edit')->with('doctor', $doctor);
+        return view('admin.doctors.edit',compact('department','shift','emp_status','specializations'))->with('doctor', $doctor);
     }
 
     /**

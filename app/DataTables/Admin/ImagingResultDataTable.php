@@ -70,7 +70,7 @@ class ImagingResultDataTable extends DataTable
             'imaging_date',
             'imaging_results',
             'technician',
-            'reporting_radiologist',
+            'radiologist',
             'comments',
             'image_link'
         ];

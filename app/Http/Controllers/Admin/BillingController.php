@@ -75,6 +75,7 @@ class BillingController extends AppBaseController
     public function edit($id)
     {
         $billing = $this->billingRepository->find($id);
+        $admissions = Admission::all();
 
         if (empty($billing)) {
             Flash::error('Billing not found');
@@ -82,7 +83,7 @@ class BillingController extends AppBaseController
             return redirect(route('admin.billings.index'));
         }
 
-        return view('admin.billings.edit')->with('billing', $billing);
+        return view('admin.billings.edit',compact('admissions'))->with('billing', $billing);
     }
 
     /**

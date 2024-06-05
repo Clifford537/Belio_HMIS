@@ -77,11 +77,13 @@ class PhysicianController extends AppBaseController
     public function edit($id)
     {
         $physician = $this->physicianRepository->find($id);
+        $procedures = RadiologyProcedure::all();
+        $specs = Specialisation::all();
 
         if (empty($physician)) {
             Flash::error('Physician not found');
 
-            return redirect(route('admin.physicians.index'));
+            return redirect(route('admin.physicians.index',compact('procedures','specs')));
         }
 
         return view('admin.physicians.edit')->with('physician', $physician);

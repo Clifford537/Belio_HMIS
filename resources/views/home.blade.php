@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+   <div class="container-fluid bg-light" style="padding: 20px; border-radius: 50px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="row">
             <div class="col-md-6">
                 <h1 class="text-left text-white text-success" style="font-size: 24px;">Dashboard</h1>
@@ -12,9 +12,26 @@
         </div>
 
         <div class="row mt-4">
+
+        <div class="col-md-3">
+            <div class="card bg-light mb-3" style="max-width: 500px; ">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex flex-column justify-content-center align-items-center">
+                            <p class="card-text" style="font-size:20px;">
+                                Welcome to Our Hospital Management System inpatient</p></h5>
+                        </div>
+                <div class="card-body">
+                    <a href="{{ route('admin.patients.create') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">Get Started</a>
+                    </a>
+                </div>
+                        <div>
+
+                    </div>
+                </div>
+            </div>
             <!-- Total Nurses Card -->
             <div class="col-md-3">
-                <div class="card bg-info mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-info mb-4 text-white" style="max-width: 500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $nurses }}</h2>
@@ -31,7 +48,7 @@
 
             <!-- Total Doctors Card -->
             <div class="col-md-3">
-                <div class="card bg-success mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-success mb-3 text-white" style="max-width: 500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $totalDoctors }}</h2>
@@ -40,7 +57,7 @@
                     </div>
                     <div class="card-body">
                         <a href="{{ route('admin.doctors.index') }}" class="arrow-link" style="text-decoration: none; color: white; font-size: 18px;">
-                            <strong>View Doctors</strong> <span style="font-size: 20px;">&rarr;</span>
+                            <strong>View Doctors100</strong> <span style="font-size: 20px;">&rarr;</span>
                         </a>
                     </div>
                 </div>
@@ -48,7 +65,7 @@
 
             <!-- Total Beds Card -->
             <div class="col-md-3">
-                <div class="card bg-warning mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-warning mb-3 text-white" style="max-width: 500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $beds }}</h2>
@@ -65,7 +82,7 @@
 
             <!-- Total Department Card -->
             <div class="col-md-3">
-                <div class="card bg-danger mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-danger mb-3 text-white" style="max-width: 500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $departments }}</h2>
@@ -82,7 +99,7 @@
 
             <!-- Total Laboratory Card -->
             <div class="col-md-3">
-                <div class="card bg-pink text-white" style="max-width: 18rem;">
+                <div class="card bg-pink text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $laboratories }}</h2>
@@ -99,7 +116,7 @@
 
             <!-- Total Patient Card -->
             <div class="col-md-3">
-                <div class="card bg-purple mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-purple mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $patients }}</h2>
@@ -116,7 +133,7 @@
 
             <!-- Total Physician Card -->
             <div class="col-md-3">
-                <div class="card bg-dark mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-dark mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $physicians }}</h2>
@@ -133,7 +150,7 @@
 
             <!-- Total Radiologist Card -->
             <div class="col-md-3">
-                <div class="card bg-lightblue mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-lightblue mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $radiologists }}</h2>
@@ -150,7 +167,7 @@
 
             <!-- Total Technician Card -->
             <div class="col-md-3">
-                <div class="card bg-gradient-green mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-gradient-green mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $technicians }}</h2>
@@ -167,7 +184,7 @@
 
             <!-- Total Theatre Card -->
             <div class="col-md-3">
-                <div class="card bg-primary mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-primary mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $theatres }}</h2>
@@ -184,7 +201,7 @@
 
             <!-- Total Ward Card -->
             <div class="col-md-3">
-                <div class="card bg-fuchsia mb-3 text-white" style="max-width: 18rem;">
+                <div class="card bg-fuchsia mb-3 text-white" style="max-width:500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $wards }}</h2>
@@ -200,53 +217,37 @@
             </div>
 
         </div>
-        <div class="row mt-4">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <div id="graph-container">
-                    <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+
+   <!-- Charts Row Container -->
+    <div class="row mt-4">
+        <!-- Bar Chart -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div id="graph-container">
+                        <canvas id="barChart" width="600" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pie Chart -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <div id="pieChart1-container">
+                        <canvas id="pieChart1" width="400" height="300"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-    </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-            // Chart.js script to create a bar chart
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Nurses', 'Doctors', 'Beds', 'Departments'],
-            datasets: [{
-                label: 'Count',
-                data: [{{ $nurses }}, {{ $totalDoctors }}, {{ $beds }}],
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
         // Function to display EAT time with seconds counting
         function displayEATTime() {
             var now = new Date();
@@ -276,5 +277,87 @@
 
         // Call the function to start displaying EAT time
         displayEATTime();
-    </script>
+
+        // Bar Chart
+    var barCtx = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(barCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Doctors', 'Nurses', 'Beds', 'Departments', 'Laboratories', 'Patients', 'Physicians', 'Radiologists', 'Technicians', 'Theatres', 'Wards'],
+            datasets: [{
+                label: 'Count',
+                data: [{{ $totalDoctors }}, {{ $nurses }}, {{ $beds }}, {{ $departments }}, {{ $laboratories }}, {{ $patients }}, {{ $physicians }}, {{ $radiologists }}, {{ $technicians }}, {{ $theatres }}, {{ $wards }}],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Pie Chart
+    var pieCtx1 = document.getElementById('pieChart1').getContext('2d');
+    var pieChart1 = new Chart(pieCtx1, {
+        type: 'pie',
+        data: {
+            labels: ['Nurses', 'Doctors', 'Beds', 'Departments'],
+            datasets: [{
+                label: 'Count',
+                data: [{{ $nurses }}, {{ $totalDoctors }}, {{ $beds }}, {{ $departments }}],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                }
+            }
+    });
+</script>
+
 @endsection

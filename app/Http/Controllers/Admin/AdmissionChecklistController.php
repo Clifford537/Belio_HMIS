@@ -75,6 +75,7 @@ class AdmissionChecklistController extends AppBaseController
     public function edit($id)
     {
         $admissionChecklist = $this->admissionChecklistRepository->find($id);
+        $ward = Ward::all();
 
         if (empty($admissionChecklist)) {
             Flash::error('Admission Checklist not found');
@@ -82,7 +83,7 @@ class AdmissionChecklistController extends AppBaseController
             return redirect(route('admin.admissionChecklists.index'));
         }
 
-        return view('admin.admission_checklists.edit')->with('admissionChecklist', $admissionChecklist);
+        return view('admin.admission_checklists.edit', compact('ward'))->with('admissionChecklist', $admissionChecklist);
     }
 
     /**

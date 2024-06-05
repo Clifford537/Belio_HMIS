@@ -1,14 +1,14 @@
 <!-- Admission Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('admission_id', 'Admission:') !!}
-    {!! Form::select('admission_id', $admissions->pluck('id', 'id')->prepend('Select Admission', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::select('admission_id', $admissions->pluck('id', 'id')->prepend('Select Admission', ''), null, ['class' => 'form-control']) !!}
 </div>
 
 
 <!-- Discharge Date Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('discharge_date', 'Discharge Date:') !!}
-    {!! Form::text('discharge_date', null, ['class' => 'form-control','id'=>'discharge_date']) !!}
+    {!! Form::text('discharge_date', null, ['class' => 'form-control','id'=>'discharge_date','required' => 'required']) !!}
 </div>
 
 

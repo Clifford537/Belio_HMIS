@@ -41,7 +41,7 @@ class AdmissionController extends AppBaseController
         $admission_types= AdmissionType::all();
         return view('admin.admissions.create', compact('patients','doctors','admission_types'));
     }
-    
+
 
     /**
      * Store a newly created Admission in storage.
@@ -79,6 +79,9 @@ class AdmissionController extends AppBaseController
     public function edit($id)
     {
         $admission = $this->admissionRepository->find($id);
+        $patients =Patient::all();
+        $doctors = Doctor::all();
+        $admission_types= AdmissionType::all();
 
         if (empty($admission)) {
             Flash::error('Admission not found');
@@ -86,7 +89,7 @@ class AdmissionController extends AppBaseController
             return redirect(route('admin.admissions.index'));
         }
 
-        return view('admin.admissions.edit')->with('admission', $admission);
+        return view('admin.admissions.edit',compact('patients','doctors','admission_types'))->with('admission', $admission);
     }
 
     /**

@@ -51,6 +51,6 @@
 
 </div>
 
-    {!! Form::select('patient_id', $patient->pluck('first_name', 'id')->prepend('Select Patient', ''), null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::select('patient_id', $patients->pluck('first_name', 'id')->prepend('Select Patient', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
  main

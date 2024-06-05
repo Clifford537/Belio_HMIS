@@ -80,6 +80,9 @@ class BedController extends AppBaseController
     public function edit($id)
     {
         $bed = $this->bedRepository->find($id);
+        $wards = Ward::all(); // plural to indicate collection
+        $bedType = Bed_Type::all(); // plural to indicate collection
+        $patients = Patient::all(); // plural to indicate collection
 
         if (empty($bed)) {
             Flash::error('Bed not found');
@@ -87,7 +90,7 @@ class BedController extends AppBaseController
             return redirect(route('admin.beds.index'));
         }
 
-        return view('admin.beds.edit')->with('bed', $bed);
+        return view('admin.beds.edit',compact('wards','bedType','patients'))->with('bed', $bed);
     }
 
     /**

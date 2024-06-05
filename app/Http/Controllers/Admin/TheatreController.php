@@ -75,6 +75,8 @@ class TheatreController extends AppBaseController
     public function edit($id)
     {
         $theatre = $this->theatreRepository->find($id);
+        $doctor = Doctor::all();
+
 
         if (empty($theatre)) {
             Flash::error('Theatre not found');
@@ -82,7 +84,7 @@ class TheatreController extends AppBaseController
             return redirect(route('admin.theatres.index'));
         }
 
-        return view('admin.theatres.edit')->with('theatre', $theatre);
+        return view('admin.theatres.edit',compact('doctor'))->with('theatre', $theatre);
     }
 
     /**

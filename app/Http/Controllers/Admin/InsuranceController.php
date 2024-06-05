@@ -76,6 +76,7 @@ class InsuranceController extends AppBaseController
     public function edit($id)
     {
         $insurance = $this->insuranceRepository->find($id);
+        $patients = Patient::all();
 
         if (empty($insurance)) {
             Flash::error('Insurance not found');
@@ -83,7 +84,7 @@ class InsuranceController extends AppBaseController
             return redirect(route('admin.insurances.index'));
         }
 
-        return view('admin.insurances.edit')->with('insurance', $insurance);
+        return view('admin.insurances.edit',compact('patients'))->with('insurance', $insurance);
     }
 
     /**
