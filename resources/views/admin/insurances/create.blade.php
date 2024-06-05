@@ -25,10 +25,10 @@
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('admin.insurances.index') }}" class="btn btn-default">Cancel</a>
-                <a href="{{ route('admin.wards.create') }}" class="btn btn-default bg-primary">Previous</a>
-                <a href="{{ route('admin.billings.create') }}" class="btn btn-default bg-primary" id="nextButton">Next</a>
-                <a href="{{ route('admin.patients.create') }}" class="btn btn-default bg-primary">Back to Patients</a>
+                <a href="{{ route('admin.insurances.index') }}" class="btn btn-default btn-danger">Cancel</a>
+                <a href="{{ route('admin.wards.create') }}" class="btn btn-default bg-gradient-info">Previous</a>
+                <a href="{{ route('admin.billings.create') }}" class="btn btn-default bg-warning" id="nextButton">Next</a>
+                <a href="{{ route('admin.patients.create') }}" class="btn btn-default bg-gradient-success">Back to Patients</a>
             </div>
 
             {!! Form::close() !!}
