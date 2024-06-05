@@ -32,7 +32,7 @@
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('admin.wards.index') }}" class="btn btn-default"> Cancel </a>
-                <a href="{{ route('admin.beds.create') }}" class="btn btn-default bg-primary"> Next</a>
+                <a href="{{ route('admin.beds.create') }}" class="btn btn-default bg-primary" id="nextButton" > Next</a>
                 <a href="{{ route('admin.patients.create') }}" class="btn btn-default bg-primary"> Back to patients </a>
             </div>
 
@@ -40,4 +40,26 @@
 
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#nextButton').on('click', function(event) {
+                    let isValid = true;
+                    $('form [required]').each(function() {
+                        if ($(this).val() === '') {
+                            isValid = false;
+                            $(this).addClass('is-invalid');
+                        } else {
+                            $(this).removeClass('is-invalid');
+                        }
+                    });
+
+                    if (!isValid) {
+                        event.preventDefault();
+                        alert('Please fill out all required fields.');
+                    }
+                });
+            });
+        </script>
 @endsection

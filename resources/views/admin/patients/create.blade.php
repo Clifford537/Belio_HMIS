@@ -33,7 +33,7 @@
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('admin.patients.index') }}" class="btn btn-default">Cancel</a>
                 <a href="{{ route('admin.insurances.create') }}" class="btn btn-default bg-primary text-white" id="proceed">Outpatient</a>
-                <a href="{{ route('admin.wards.create') }}" class="btn btn-default bg-primary text-white" id="proceed">Inpatient</a>
+                <a href="{{ route('admin.wards.create') }}" class="btn btn-default bg-primary text-white"  id="proceedto"  >Inpatient</a>
             </div>
 
             {!! Form::close() !!}
@@ -45,6 +45,25 @@
         <script>
             $(document).ready(function() {
                 $('#proceed').on('click', function(event) {
+                    let isValid = true;
+                    $('form [required]').each(function() {
+                        if ($(this).val() === '') {
+                            isValid = false;
+                            $(this).addClass('is-invalid');
+                        } else {
+                            $(this).removeClass('is-invalid');
+                        }
+                    });
+
+                    if (!isValid) {
+                        event.preventDefault();
+                        alert('Please fill out all required fields.');
+                    }
+                });
+            });
+
+            $(document).ready(function() {
+                $('#proceedto').on('click', function(event) {
                     let isValid = true;
                     $('form [required]').each(function() {
                         if ($(this).val() === '') {
