@@ -19,19 +19,19 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'equipment.store']) !!}
+            {!! Form::open(['route' => 'admin.equipment.store']) !!}
 
             <div class="card-body">
 
                 <div class="row">
-                    @include('equipment.fields')
+                    @include('admin.equipment.fields')
                 </div>
 
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('equipment.index') }}" class="btn btn-default"> Cancel </a>
+                <a href="{{ route('admin.equipment.index') }}" class="btn btn-default"> Cancel </a>
             </div>
 
             {!! Form::close() !!}

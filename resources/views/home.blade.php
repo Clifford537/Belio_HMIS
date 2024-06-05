@@ -57,7 +57,7 @@
                     </div>
                     <div class="card-body">
                         <a href="{{ route('admin.doctors.index') }}" class="arrow-link" style="text-decoration: none; color: white; font-size: 18px;">
-                            <strong>View Doctors100</strong> <span style="font-size: 20px;">&rarr;</span>
+                            <strong>View Doctors</strong> <span style="font-size: 20px;">&rarr;</span>
                         </a>
                     </div>
                 </div>
