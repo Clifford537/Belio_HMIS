@@ -36,9 +36,21 @@
     </div>
 
     @push('page_scripts')
+        <!-- Include jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Include Bootstrap Datepicker JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         <script>
-            $(document).ready(function() {
+            $(document).ready(function(){
+                $('#coverage_start_date').datepicker({
+                    format: 'mm/dd/yyyy',
+                    autoclose: true
+                });
+                $('#coverage_end_date').datepicker({
+                    format: 'mm/dd/yyyy',
+                    autoclose: true
+                });
+
                 $('#nextButton').on('click', function(event) {
                     let isValid = true;
                     $('form [required]').each(function() {
