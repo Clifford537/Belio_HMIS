@@ -1,3 +1,7 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------
 @extends('layouts.app')
 
 @section('content')
@@ -46,24 +50,70 @@
                 </div>
             </div>
 
-            <!-- Total Doctors Card -->
-            <div class="col-md-3">
-                <div class="card bg-success mb-3 text-white" style="max-width: 500px;">
-                    <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
-                        <div class="text-center mb-3">
-                            <h2 class="card-title" style="font-size: 20px;">{{ $totalDoctors }}</h2>
-                            <p class="card-text" style="font-size: 16px;">Our Doctors</p>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <a href="{{ route('admin.doctors.index') }}" class="arrow-link" style="text-decoration: none; color: white; font-size: 18px;">
-                            <strong>View Doctors</strong> <span style="font-size: 20px;">&rarr;</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+   <!-- Total Doctors Card -->
+   <div class="col-md-3">
+       <div class="card card-counter primary">
+           <div class="card-body text-center">
+               <i class="fas fa-user-md  fa-2x"></i>
+               <span class="count-numbers d-block my-2">{{$totalDoctors}}</span>
+               <span class="count-name">Our Doctors</span>
+           </div>
+           <div class="card-body">
+               <a href="{{ route('admin.doctors.index') }}" class="arrow-link" style="text-decoration: none; color: white; font-size: 18px;">
+                   <strong>View Doctors</strong>
+               </a>
+           </div>
+       </div>
+   </div>
 
-            <!-- Total Beds Card -->
+   <style>
+       .card-counter{
+           box-shadow: 2px 2px 10px #DADADA;
+           margin: 5px;
+           padding: 20px 10px;
+           background-color: #fff;
+           height: 170px;
+           border-radius: 5px;
+           transition: .3s linear all;
+       }
+
+       .card-counter:hover{
+           box-shadow: 4px 4px 20px #DADADA;
+           transition: .3s linear all;
+       }
+
+       .card-counter.primary{
+           background-color: #007bff;
+           color: #FFF;
+       }
+       .card-counter i{
+           font-size: 5em;
+           opacity: 0.2;
+       }
+
+       .card-counter .count-numbers{
+           position: absolute;
+           right: 35px;
+           top: 20px;
+           font-size: 32px;
+           display: block;
+       }
+
+       .card-counter .count-name{
+           position: absolute;
+           right: 35px;
+           top: 65px;
+           font-style: italic;
+           text-transform: capitalize;
+           opacity: 0.9;
+           display: block;
+           font-size: 18px;
+       }
+   </style>
+
+
+
+   <!-- Total Beds Card -->
             <div class="col-md-3">
                 <div class="card bg-warning mb-3 text-white" style="max-width: 500px;">
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
@@ -359,5 +409,51 @@
             }
     });
 </script>
+
+   // Style
+   <style>
+       .card-counter{
+           box-shadow: 2px 2px 10px #DADADA;
+           margin: 5px;
+           padding: 20px 10px;
+           background-color: #fff;
+           height: 170px;
+           border-radius: 5px;
+           transition: .3s linear all;
+       }
+
+       .card-counter:hover{
+           box-shadow: 4px 4px 20px #DADADA;
+           transition: .3s linear all;
+       }
+
+       .card-counter.primary{
+           background-color: #007bff;
+           color: #FFF;
+       }
+       .card-counter i{
+           font-size: 5em;
+           opacity: 0.2;
+       }
+
+       .card-counter .count-numbers{
+           position: absolute;
+           right: 35px;
+           top: 20px;
+           font-size: 32px;
+           display: block;
+       }
+
+       .card-counter .count-name{
+           position: absolute;
+           right: 35px;
+           top: 65px;
+           font-style: italic;
+           text-transform: capitalize;
+           opacity: 0.9;
+           display: block;
+           font-size: 18px;
+       }
+   </style>
 
 @endsection
