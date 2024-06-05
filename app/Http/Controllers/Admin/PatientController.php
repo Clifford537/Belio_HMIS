@@ -52,9 +52,9 @@ class PatientController extends AppBaseController
 
         $patient = $this->patientRepository->create($input);
 
-        Flash::success('Patient saved successfully.');
+        Flash::success('Patient saved successfully. Proceed by using the oupatient and inpatient buttons');
 
-        return redirect(route('admin.patients.index'));
+        return redirect()->route('admin.patients.create')->withInput($input);
     }
 
     /**
