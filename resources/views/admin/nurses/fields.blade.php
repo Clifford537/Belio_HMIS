@@ -25,8 +25,27 @@
 <!-- Email Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('email', 'Email:') !!}
-    {!! Form::email('email', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
+    {!! Form::email('email', null, ['id' => 'email', 'class' => 'form-control', 'maxlength' => 50]) !!}
+    <div id="emailError" class="text-danger" style="display: none;">Invalid email format.</div>
 </div>
+@push('page_scripts')
+<script>
+    document.getElementById('email').addEventListener('input', function() {
+        const emailInput = this;
+        const emailError = document.getElementById('emailError');
+        const email = emailInput.value.trim();
+
+        // Regular expression for email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+            emailError.style.display = 'block';
+        } else {
+            emailError.style.display = 'none';
+        }
+    });
+</script>
+@endpush
 
 <!-- Phone Number Field -->
 <div class="form-group col-sm-6">
