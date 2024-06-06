@@ -31,8 +31,40 @@
 <!-- Phone Number Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('phone_number', 'Phone Number:') !!}
-    {!! Form::text('phone_number', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
+    {!! Form::text('phone_number', null, ['id' => 'phone_number', 'class' => 'form-control', 'maxlength' => 14]) !!}
+    <small id="phoneHelp" class="form-text text-muted">Format: (XXX) XXX-XXXX</small>
+    <div id="phoneError" class="text-danger" style="display: none;">Incorrect format. The correct format is (XXX) XXX-XXXX.</div>
 </div>
+@push('page_scripts')
+<script>
+    document.getElementById('phone_number').addEventListener('input', function() {
+        const phoneInput = this;
+        const phoneError = document.getElementById('phoneError');
+        let phoneNumber = phoneInput.value.replace(/\D/g, ''); 
+
+        // Auto-formatting
+        if (phoneNumber.length > 0) {
+            phoneNumber = '(' + phoneNumber.substring(0, 3);
+        }
+        if (phoneNumber.length > 4) {
+            phoneNumber += ') ' + phoneNumber.substring(3, 6);
+        }
+        if (phoneNumber.length > 9) {
+            phoneNumber += '-' + phoneNumber.substring(6, 10);
+        }
+
+        phoneInput.value = phoneNumber;
+
+        // Validation
+        const phonePattern = /^\(\d{3}\) \d{3}-\d{4}$/; 
+        if (!phonePattern.test(phoneNumber)) {
+            phoneError.style.display = 'block';
+        } else {
+            phoneError.style.display = 'none';
+        }
+    });
+</script>
+@endpush
 
 <!-- Address Field -->
 <div class="form-group col-sm-6">
@@ -66,17 +98,8 @@
 <!-- Specialization Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('specialization_id', 'Specialization :') !!}
- main
     {!! Form::select('specialization_id', $specializations->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}
-</div>
-
-
-
-    {!! Form::select('specialization_id', $specs->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}     
-</div>
-
-
- allan
+   </div>
 
 <!-- Department Id Field -->
 <div class="form-group col-sm-6">
