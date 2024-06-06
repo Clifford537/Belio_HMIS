@@ -8,6 +8,7 @@
                     <h1>
                     Create Discharges
                     </h1>
+                    <p>@include('flash::message')</p>
                 </div>
             </div>
         </div>

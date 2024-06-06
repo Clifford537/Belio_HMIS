@@ -55,7 +55,7 @@ class BedController extends AppBaseController
 
         Flash::success('Bed saved successfully.');
 
-        return redirect(route('admin.beds.index'));
+        return redirect()->route('admin.beds.create')->withInput($input);
     }
 
     /**

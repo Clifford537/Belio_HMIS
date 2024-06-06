@@ -49,9 +49,10 @@ class InsuranceController extends AppBaseController
 
         $insurance = $this->insuranceRepository->create($input);
 
+
         Flash::success('Insurance saved successfully.');
 
-        return redirect(route('admin.insurances.index'));
+        return redirect(route('admin.insurances.create')->withInput($input));
     }
 
     /**
