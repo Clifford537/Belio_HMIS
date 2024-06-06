@@ -51,7 +51,7 @@ class DischargeController extends AppBaseController
 
         Flash::success('Discharge saved successfully.');
 
-        return redirect(route('admin.discharges.index'));
+        return redirect(route('admin.discharges.create')->withInput($input));
     }
 
     /**
