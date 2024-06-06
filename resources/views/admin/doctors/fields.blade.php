@@ -18,9 +18,10 @@
 
 <!-- Gender -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Gender', 'Gender:') !!}
-    {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 10]) !!}
+    {!! Form::label('gender', 'Gender:') !!}
+    {!! Form::select('gender', ['Male' => 'Male', 'Female' => 'Female'], null, ['class' => 'form-control']) !!}
 </div>
+
 
 <!-- Email Field -->
 <div class="form-group col-sm-6">
@@ -31,8 +32,34 @@
 <!-- Phone Number Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('phone_number', 'Phone Number:') !!}
-    {!! Form::text('phone_number', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
+    {!! Form::text('phone_number', null, ['id' => 'phone_number', 'class' => 'form-control', 'maxlength' => 10, 'placeholder' => '07XXXXXXXX or 01XXXXXXXX']) !!}
+    <div id="phoneError" class="text-danger" style="display: none;"><p>The correct format is 07XXXXXXXX or 01XXXXXXXX.</p></div>
 </div>
+
+@push('page_scripts')
+<script>
+    document.getElementById('phone_number').addEventListener('input', function() {
+        const phoneInput = this;
+        const phoneError = document.getElementById('phoneError');
+        let phoneNumber = phoneInput.value.replace(/\D/g, ''); // Remove all non-digit characters
+
+        // Auto-formatting
+        if (phoneNumber.length > 10) {
+            phoneNumber = phoneNumber.substring(0, 10); // Limit to 10 digits
+        }
+
+        phoneInput.value = phoneNumber;
+
+        // Validation
+        const phonePattern = /^(07|01)\d{8}$/; // Pattern for 07XXXXXXXX or 01XXXXXXXX
+        if (!phonePattern.test(phoneNumber)) {
+            phoneError.style.display = 'block';
+        } else {
+            phoneError.style.display = 'none';
+        }
+    });
+</script>
+@endpush
 
 <!-- Address Field -->
 <div class="form-group col-sm-6">
@@ -66,17 +93,8 @@
 <!-- Specialization Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('specialization_id', 'Specialization :') !!}
- main
     {!! Form::select('specialization_id', $specializations->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}
-</div>
-
-
-
-    {!! Form::select('specialization_id', $specs->pluck('specialty', 'id')->prepend('Select Specialty ', ''), null, ['class' => 'form-control', 'required']) !!}     
-</div>
-
-
- allan
+   </div>
 
 <!-- Department Id Field -->
 <div class="form-group col-sm-6">
@@ -106,7 +124,6 @@
 <div class="form-group col-sm-6">
     {!! Form::label('shift_id', 'Shift :') !!}
     {!! Form::select('shift_id', $shift->pluck('day_of_week', 'id')->prepend('Select Shift', ''), null, ['class' => 'form-control', 'required']) !!}
- main
 </div>
 
 </div>
