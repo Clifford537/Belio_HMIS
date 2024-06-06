@@ -1,20 +1,46 @@
-<!-- First Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('first_name', 'First Name:') !!}
-    {!! Form::text('first_name', null, ['class' => 'form-control', 'required', 'maxlength' => 300, 'maxlength' => 300]) !!}
+    {!! Form::text('first_name', null, ['id' => 'first_name', 'class' => 'form-control', 'maxlength' => 100]) !!}
 </div>
 
 <!-- Surname Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('surname', 'Surname:') !!}
-    {!! Form::text('surname', null, ['class' => 'form-control', 'required', 'maxlength' => 300, 'maxlength' => 300]) !!}
+    {!! Form::text('surname', null, ['id' => 'surname', 'class' => 'form-control', 'maxlength' => 100]) !!}
 </div>
 
 <!-- Other Names Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('other_names', 'Other Names:') !!}
-    {!! Form::text('other_names', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::text('other_names', null, ['id' => 'other_names', 'class' => 'form-control', 'maxlength' => 100]) !!}
 </div>
+
+@push('page_scripts')
+<script>
+    function capitalizeFirstLetter(string) {
+        return string.replace(/\b\w/g, function(letter) {
+            return letter.toUpperCase();
+        });
+    }
+
+    function validateAndFormatInput(event) {
+        const inputField = event.target;
+        let value = inputField.value;
+
+        // Remove non-letter characters
+        value = value.replace(/[^a-zA-Z\s]/g, '');
+
+        // Capitalize the first letter of each word
+        value = capitalizeFirstLetter(value);
+
+        inputField.value = value;
+    }
+
+    document.getElementById('first_name').addEventListener('input', validateAndFormatInput);
+    document.getElementById('surname').addEventListener('input', validateAndFormatInput);
+    document.getElementById('other_names').addEventListener('input', validateAndFormatInput);
+</script>
+@endpush
 
 <!-- Gender -->
 <div class="form-group col-sm-6">
