@@ -8,6 +8,7 @@
                     <h1>
                     Create Wards
                     </h1>
+                    <p>@include('flash::message')</p>
                 </div>
             </div>
         </div>

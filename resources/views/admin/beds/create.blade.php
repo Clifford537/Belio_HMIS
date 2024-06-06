@@ -8,6 +8,7 @@
                     <h1>
                     Create Beds
                     </h1>
+                    <p>@include('flash::message')</p>
                 </div>
             </div>
         </div>
@@ -33,7 +34,7 @@
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('admin.beds.index') }}" class="btn btn-danger"> Cancel </a>
                 <a href="{{ route('admin.wards.create') }}" class="btn btn-default bg-gradient-info"> Previous </a>
-                <a href="{{ route('admin.insurances.create') }}" class="btn btn-default bg-warning">Next</a>
+                <a href="{{ route('admin.insurances.create') }}" class="btn btn-default bg-warning"  id="proceed"  >Next</a>
                 <a href="{{ route('admin.patients.create') }}" class="btn btn-default bg-gradient-success"> Back to Patients </a>
 
             </div>
@@ -42,4 +43,27 @@
 
         </div>
     </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#proceed').on('click', function(event) {
+                let isValid = true;
+                $('form [required]').each(function() {
+                    if ($(this).val() === '') {
+                        isValid = false;
+                        $(this).addClass('is-invalid');
+                    } else {
+                        $(this).removeClass('is-invalid');
+                    }
+                });
+
+                if (!isValid) {
+                    event.preventDefault();
+                    alert('Please fill out all required fields.');
+                }
+            });
+        });
+    </script>
 @endsection
