@@ -127,10 +127,8 @@
         const inputField = event.target;
         let value = inputField.value;
 
-        // Allow only letters, spaces, apostrophes, and periods
         value = value.replace(/[^a-zA-Z\s']/g, '');
 
-        // Capitalize the first letter of each word
         value = capitalizeFirstLetter(value);
 
         inputField.value = value;
