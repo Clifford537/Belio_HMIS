@@ -18,9 +18,10 @@
 
 <!-- Gender -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Gender', 'Gender:') !!}
-    {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 10]) !!}
+    {!! Form::label('gender', 'Gender:') !!}
+    {!! Form::select('gender', ['Male' => 'Male', 'Female' => 'Female'], null, ['class' => 'form-control']) !!}
 </div>
+
 
 <!-- Email Field -->
 <div class="form-group col-sm-6">
@@ -31,32 +32,26 @@
 <!-- Phone Number Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('phone_number', 'Phone Number:') !!}
-    {!! Form::text('phone_number', null, ['id' => 'phone_number', 'class' => 'form-control', 'maxlength' => 14]) !!}
-    <small id="phoneHelp" class="form-text text-muted">Format: (XXX) XXX-XXXX</small>
-    <div id="phoneError" class="text-danger" style="display: none;">Incorrect format. The correct format is (XXX) XXX-XXXX.</div>
+    {!! Form::text('phone_number', null, ['id' => 'phone_number', 'class' => 'form-control', 'maxlength' => 10, 'placeholder' => '07XXXXXXXX or 01XXXXXXXX']) !!}
+    <div id="phoneError" class="text-danger" style="display: none;"><p>The correct format is 07XXXXXXXX or 01XXXXXXXX.</p></div>
 </div>
+
 @push('page_scripts')
 <script>
     document.getElementById('phone_number').addEventListener('input', function() {
         const phoneInput = this;
         const phoneError = document.getElementById('phoneError');
-        let phoneNumber = phoneInput.value.replace(/\D/g, ''); 
+        let phoneNumber = phoneInput.value.replace(/\D/g, ''); // Remove all non-digit characters
 
         // Auto-formatting
-        if (phoneNumber.length > 0) {
-            phoneNumber = '(' + phoneNumber.substring(0, 3);
-        }
-        if (phoneNumber.length > 4) {
-            phoneNumber += ') ' + phoneNumber.substring(3, 6);
-        }
-        if (phoneNumber.length > 9) {
-            phoneNumber += '-' + phoneNumber.substring(6, 10);
+        if (phoneNumber.length > 10) {
+            phoneNumber = phoneNumber.substring(0, 10); // Limit to 10 digits
         }
 
         phoneInput.value = phoneNumber;
 
         // Validation
-        const phonePattern = /^\(\d{3}\) \d{3}-\d{4}$/; 
+        const phonePattern = /^(07|01)\d{8}$/; // Pattern for 07XXXXXXXX or 01XXXXXXXX
         if (!phonePattern.test(phoneNumber)) {
             phoneError.style.display = 'block';
         } else {
