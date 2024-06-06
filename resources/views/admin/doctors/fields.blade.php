@@ -155,24 +155,20 @@
 </script>
 @endpush
 
-
-
 <!-- Date Of Birth Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('date_of_birth', 'Date Of Birth:') !!}
-    {!! Form::text('date_of_birth', null, ['class' => 'form-control', 'id' => 'date_of_birth']) !!}
+    {!! Form::text('date_of_birth', null, ['class' => 'form-control', 'id' => 'date_of_birth', 'placeholder' => 'Select Date of Birth']) !!}
 </div>
 
 @push('page_scripts')
-    <!-- Include jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Include Bootstrap Datepicker JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#date_of_birth').datepicker({
-                format: 'mm/dd/yyyy',
-                autoclose: true
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#date_of_birth", {
+                dateFormat: "Y-m-d",
+                maxDate: "today"
             });
         });
     </script>
