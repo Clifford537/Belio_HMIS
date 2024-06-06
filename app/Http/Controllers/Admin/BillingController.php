@@ -50,7 +50,7 @@ class BillingController extends AppBaseController
 
         Flash::success('Billing saved successfully.');
 
-        return redirect(route('admin.billings.index'));
+        return redirect()->route('admin.billings.create')->withInput($input);
     }
 
     /**

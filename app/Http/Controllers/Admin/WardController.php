@@ -52,8 +52,7 @@ class WardController extends AppBaseController
         $ward = $this->wardRepository->create($input);
 
         Flash::success('Ward saved successfully.');
-
-        return redirect(route('admin.wards.index'));
+        return redirect()->route('admin.wards.create')->withInput($input);
     }
 
     /**
