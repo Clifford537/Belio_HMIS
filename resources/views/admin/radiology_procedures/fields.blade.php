@@ -9,25 +9,24 @@
 <!-- Procedure Code Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('procedure_code', 'Procedure Code:') !!}
-    {!! Form::text('procedure_code', null, ['class' => 'form-control', 'maxlength' => 50, 'maxlength' => 50]) !!}
+    {!! Form::text('procedure_code', null, ['class' => 'form-control', 'maxlength' => 50, 'placeholder' => 'Enter Procedure Code', 'id' => 'procedure_code']) !!}
+    <span id="procedure_code_error" class="text-danger"></span>
 </div>
 
 <!-- Procedure Date Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('procedure_date', 'Procedure Date:') !!}
-    {!! Form::text('procedure_date', null, ['class' => 'form-control','id'=>'procedure_date']) !!}
+    {!! Form::text('procedure_date', null, ['class' => 'form-control', 'id' => 'procedure_date', 'placeholder' => 'Select Procedure Date']) !!}
 </div>
 
 @push('page_scripts')
-    <!-- Include jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Include Bootstrap Datepicker JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#procedure_date').datepicker({
-                format: 'mm/dd/yyyy',
-                autoclose: true
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#procedure_date", {
+                dateFormat: "Y-m-d",
+                maxDate: "today"
             });
         });
     </script>
@@ -36,7 +35,7 @@
 <!-- Description Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('description', 'Description:') !!}
-    {!! Form::text('description', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::text('description', null, ['class' => 'form-control', 'maxlength' => 100, 'placeholder' => 'Enter Description']) !!}
 </div>
 
 <!-- Doctor Id Field -->
@@ -56,19 +55,20 @@
 <!-- Procedure Notes Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('procedure_notes', 'Procedure Notes:') !!}
-    {!! Form::text('procedure_notes', null, ['class' => 'form-control', 'maxlength' => 600, 'maxlength' => 600]) !!}
+    {!! Form::text('procedure_notes', null, ['class' => 'form-control', 'maxlength' => 600, 'placeholder' => 'Enter Procedure Notes']) !!}
 </div>
 
 <!-- Procedure Results Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('procedure_results', 'Procedure Results:') !!}
-    {!! Form::text('procedure_results', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::text('procedure_results', null, ['class' => 'form-control', 'maxlength' => 100, 'placeholder' => 'Enter Procedure Results']) !!}
 </div>
 
 <!-- Procedure Cost Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('procedure_cost', 'Procedure Cost:') !!}
-    {!! Form::number('procedure_cost', null, ['class' => 'form-control']) !!}
+    {!! Form::number('procedure_cost', null, ['class' => 'form-control', 'placeholder' => 'Enter Procedure Cost', 'id' => 'procedure_cost']) !!}
+    <span id="procedure_cost_error" class="text-danger"></span>
 </div>
 
 <!-- Insurance Id Field -->
@@ -80,7 +80,7 @@
 <!-- Procedure Location Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('procedure_location', 'Procedure Location:') !!}
-    {!! Form::text('procedure_location', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::text('procedure_location', null, ['class' => 'form-control', 'maxlength' => 100, 'placeholder' => 'Enter Procedure Location']) !!}
 </div>
 
 <!-- Theatre Id Field -->
@@ -88,3 +88,16 @@
     {!! Form::label('theatre_id', 'Theatre:') !!}
     {!! Form::select('theatre_id', $theatre->pluck('name', 'id')->prepend('Select Theatre', ''), null, ['class' => 'form-control', 'required']) !!}
 </div>
+
+@push('page_scripts')
+    <script>
+        $('#procedure_cost').on('input', function () {
+            var procedureCostValue = $(this).val().trim();
+            if (procedureCostValue === '' || parseFloat(procedureCostValue) <= 0 || isNaN(parseFloat(procedureCostValue))) {
+                $('#procedure_cost_error').text('Procedure Cost must be a positive number');
+            } else {
+                $('#procedure_cost_error').text('');
+            }
+        });
+    </script>
+@endpush
