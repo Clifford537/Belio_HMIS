@@ -16,10 +16,10 @@
     {!! Form::text('other_names', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
 </div>
 
-<!-- Gender Field -->
+<!-- Gender -->
 <div class="form-group col-sm-6">
-    {!! Form::label('gender', 'Gender :') !!}
-    {!! Form::text('gender', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::label('gender', 'Gender:') !!}
+    {!! Form::select('gender', ['Male' => 'Male', 'Female' => 'Female'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Email Field -->
