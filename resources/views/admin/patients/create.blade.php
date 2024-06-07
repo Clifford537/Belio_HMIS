@@ -120,6 +120,22 @@
         }
     });
 
+            function validatePhoneNumber() {
+            var phoneInput = document.getElementById('phone_number_2');
+            var phoneError = document.getElementById('phoneError_2');
+            var phonePattern = /^(01|07)\d{8}$/;
+
+            if (phoneInput.value === '' || phonePattern.test(phoneInput.value)) {
+                phoneError.style.display = 'none';
+            } else {
+                phoneError.style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            validatePhoneNumber();
+        });
+
         function capitalizeFirstLetter(string) {
             return string.replace(/\b\w/g, function(letter) {
                 return letter.toUpperCase();

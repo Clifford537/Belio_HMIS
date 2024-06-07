@@ -60,8 +60,8 @@
 <!-- Emergency Contact Phone Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('emergency_contact_phone', 'Emergency Contact Phone:') !!}
-    {!! Form::text('emergency_contact_phone', old('emergency_contact_phone', session('emergency_contact_phone')), ['id' => 'phone_number','class' => 'form-control', 'maxlength' => 100, 'required' => 'required','placeholder' => '07XXXXXXXX or 01XXXXXXXX']) !!}
-    <div id="phoneError" class="text-danger" style="display: none;"><p>The correct format is 07XXXXXXXX or 01XXXXXXXX.</p></div>
+    {!! Form::text('emergency_contact_phone', old('emergency_contact_phone', session('emergency_contact_phone')), ['id' => 'phone_number_2','class' => 'form-control', 'maxlength' => 100, 'required' => 'required','placeholder' => '07XXXXXXXX or 01XXXXXXXX', 'oninput' => 'validatePhoneNumber()']) !!}
+    <div id="phoneError_2" class="text-danger" style="display: none;"><p>The correct format is 07XXXXXXXX or 01XXXXXXXX.</p></div>
 </div>
 
 <!-- Status Field -->
