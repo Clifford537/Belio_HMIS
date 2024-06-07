@@ -6,7 +6,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid bg-light" style="padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div class="container-fluid bg-grey" style="padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="row">
             <div class="col-md-6">
                 <h1 class="text-left text-white text-success" style="font-size: 30px;">Dashboard</h1>
@@ -17,15 +17,17 @@
         </div>
 
         <div class="row mt-4">
+            <!--home -->
             <div class="col-md-3">
-                <div class="card bg-light mb-3" style="max-width: 500px;">
-                    <div class="card-body">
-                        <h5 class="card-title d-flex flex-column justify-content-center align-items-center">
-                            <p class="card-text" style="font-size:20px;">Welcome to Our Hospital Management System inpatient</p>
-                        </h5>
+                <div class="card card-counter info">
+                    <div class="card-body text-center">
+                        <i class="fa fa-rocket"></i>
+                        <span class="count-name">Welcome</span>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('admin.patients.create') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">Get Started</a>
+                        <a href="{{ route('admin.patients.create') }}"  class="arrow-link" style="text-decoration: none; color: white; font-size: 18px;">
+                            <strong>Get started</strong>
+                        </a>
                     </div>
                 </div>
             </div>
