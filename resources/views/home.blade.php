@@ -136,7 +136,7 @@
                     <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
                         <div class="text-center mb-3">
                             <h2 class="card-title" style="font-size: 20px;">{{ $departments }}</h2>
-                            <p class="card-text" style="font-size: 16px;">Available Departments</p>
+                            <p class="card-text" style="font-size: 16px;">Available Departm</p>
                         </div>
                     </div>
                     <div class="card-body">
