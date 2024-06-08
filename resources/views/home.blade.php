@@ -45,6 +45,21 @@
                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
                 </div>
             </div>
+
+            <!-- Total Department Card -->
+            <div class="col-md-3">
+                <div class="card bg-danger mb-3 text-white" style="max-width: 500px;">
+                    <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
+                        <div class="text-center mb-3">
+                            <h2 class="card-title" style="font-size: 20px;">{{ $departments }}</h2>
+                            <p class="card-text" style="font-size: 16px;">Available Departm</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="{{ route('admin.departments.index') }}" class="arrow-link" style="text-decoration: none; color: white; font-size: 18px;">
+                            <strong>View Department</strong> <span style="font-size: 20px;">&rarr;</span>
+                        </a>
+                    </div>
         </div>
     </div>
 </div>
