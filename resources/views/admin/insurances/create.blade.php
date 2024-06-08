@@ -36,39 +36,45 @@
         </div>
     </div>
 
-    @push('page_scripts')
-        <!-- Include jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- Include Bootstrap Datepicker JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $('#coverage_start_date').datepicker({
-                    format: 'mm/dd/yyyy',
-                    autoclose: true
+@push('page_scripts')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#coverage_start_date", {
+            dateFormat: "Y-m-d",
+            minDate: "today",
+            onClose: function(selectedDates) {
+                flatpickr("#coverage_end_date", {
+                    dateFormat: "Y-m-d",
+                    minDate: selectedDates[0] || "today",
                 });
-                $('#coverage_end_date').datepicker({
-                    format: 'mm/dd/yyyy',
-                    autoclose: true
-                });
+            }
+        });
 
-                $('#nextButton').on('click', function(event) {
-                    let isValid = true;
-                    $('form [required]').each(function() {
-                        if ($(this).val() === '') {
-                            isValid = false;
-                            $(this).addClass('is-invalid');
-                        } else {
-                            $(this).removeClass('is-invalid');
-                        }
-                    });
+        flatpickr("#coverage_end_date", {
+            dateFormat: "Y-m-d",
+            minDate: "today"
+        });
+    });
 
-                    if (!isValid) {
-                        event.preventDefault();
-                        alert('Please fill out all required fields.');
-                    }
-                });
-            });
-        </script>
-    @endpush
+    document.getElementById('insurance_company').addEventListener('input', function() {
+        const insuranceCompanyInput = this;
+        const insuranceCompanyError = document.getElementById('insuranceCompanyError');
+        let value = insuranceCompanyInput.value.trim();
+
+        // Remove any characters that are not letters or spaces
+        value = value.replace(/[^A-Za-z\s]/g, '');
+
+        insuranceCompanyInput.value = value;
+
+        // Show error message if input contains invalid characters
+        if (value !== insuranceCompanyInput.value) {
+            insuranceCompanyError.style.display = 'block';
+        } else {
+            insuranceCompanyError.style.display = 'none';
+        }
+    })
+</script>
+@endpush
 @endsection
