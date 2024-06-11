@@ -2,218 +2,312 @@
 
 @section('content')
 
-<div class="container-fluid">
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-</div>
-<!-- Content Row -->
-<div class="row">
-<!-- Getting started -->
-<div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <span>Welcome to the Apx HMIS</span>
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        Click the get started Button</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{ route('admin.patients.create') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">Get Started</a></div>
-                </div>
-                <div class="col-auto">
-                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                </div>
-            </div>
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
         </div>
     </div>
-</div>
-
-<!-- Availabe Doctors -->
-<div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <span>Available doctors</span>
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        {{$totalDoctors}}</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{ route('admin.doctors.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Doctors</a></div>
-                </div>
-                <div class="col-auto">
-                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                </div>
-            </div>
-
-            <!-- Total Department Card -->
-            <div class="col-md-3">
-                <div class="card bg-danger mb-3 text-white" style="max-width: 500px;">
-                    <div class="card-header d-flex flex-column justify-content-center align-items-center"> <!-- Centered header text -->
-                        <div class="text-center mb-3">
-                            <h2 class="card-title" style="font-size: 20px;">{{ $departments }}</h2>
-                            <p class="card-text" style="font-size: 16px;">Available Departm</p>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <a href="{{ route('admin.departments.index') }}" class="arrow-link" style="text-decoration: none; color: white; font-size: 18px;">
-                            <strong>View Department</strong> <span style="font-size: 20px;">&rarr;</span>
-                        </a>
-                    </div>
-        </div>
-    </div>
-</div>
-
-<!-- Earnings (Monthly) Card Example -->
-<div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                        Earnings (Annual)</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                </div>
-                <div class="col-auto">
-                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Earnings (Monthly) Card Example -->
-<div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-info shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                    </div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Getting started -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
                     <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                        <div class="col mr-2">
+                            <span>Welcome to the Apex HMIS</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Click the get started Button</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{ route('admin.patients.create') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">Get Started</a></div>
                         </div>
-                        <div class="col">
-                            <div class="progress progress-sm mr-2">
-                                <div class="progress-bar bg-info" role="progressbar"
-                                    style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Doctors -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available doctors</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$totalDoctors}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{ route('admin.doctors.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Doctors</a></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-md fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Nurses -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available Nurses</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$nurses}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a href="{{ route('admin.nurses.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Nurses</a>
                             </div>
                         </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-nurse fa-2x text-gray-300"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="col-auto">
-                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+            </div>
+        </div>
+
+
+        <!-- Available Beds -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available Beds</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$beds}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a href="{{ route('admin.beds.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Beds</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-bed fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 
-<!--second row-->
-<div class="row">
-<!-- Pending Requests Card Example -->
-<div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-warning shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                        Pending Requests</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+    <!--second row-->
+    <div class="row">
+        <!-- Available Departments -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available Departments</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$departments}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a href="{{ route('admin.departments.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Departments</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-building fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-auto">
-                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+            </div>
+        </div>
+
+        <!-- Available Laboratories -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available Laboratories</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$laboratories}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a href="{{ route('admin.laboratories.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Laboratories</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-vial fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Available Patients -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available Patients</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$patients}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a href="{{ route('admin.patients.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Patients</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-procedures fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Available Radiologists -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available Radiologists</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$radiologists}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a href="{{ route('admin.radiologists.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Radiologists</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-x-ray fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!--third row-->
+    <div class="row">
+        <!-- Available Technicians -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available Technicians</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$technicians}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a href="{{ route('admin.technicians.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Technicians</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tools fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Available Theatres -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available Theatres</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$theatres}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{ route('admin.theatres.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Theatres</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-theater-masks fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- other cards-->
-
-</div>
-
-<!--third row-->
-<div class="row">
- <!-- cards-->
-
-
-</div>
-
-
-<!-- Charts Row Container -->
-<div class="row mt-3">
-    <!-- Bar Chart -->
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <div id="graph-container">
-                    <canvas id="barChart" width="600" height="265"></canvas>
+        <!-- Available Wards -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <span>Available Wards</span>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{$wards}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a href="{{ route('admin.wards.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Wards</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-hospital-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Pie Chart -->
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <div id="pieChart1-container">
-                    <canvas id="pieChart1" width="600" height="300"></canvas>
+    <!-- Charts Row Container -->
+    <div class="row mt-3">
+        <!-- Bar Chart -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div id="graph-container">
+                        <canvas id="barChart" width="600" height="265"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pie Chart -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <div id="pieChart1-container">
+                        <canvas id="pieChart1" width="600" height="300"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
- </div>
-</div>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
- var ctx = document.getElementById('barChart').getContext('2d');
- var barChart = new Chart(ctx, {
-     type: 'bar',
-     data: {
-         labels: ['Nurses', 'Doctors', 'Beds', 'Departments', 'Laboratories', 'Patients', 'Physicians', 'Radiologists', 'Technicians', 'Theatres', 'Wards'],
-         datasets: [{
-             label: 'Count',
-             data: [{{$nurses}}, {{$totalDoctors}}, {{$beds}}, {{$departments}}, {{$laboratories}}, {{$patients}}, {{$physicians}}, {{$radiologists}}, {{$technicians}}, {{$theatres}}, {{$wards}}],
-             backgroundColor: ['#17a2b8', '#007bff', '#ffc107', '#dc3545', '#e83e8c', '#6f42c1', '#343a40', '#5bc0de', '#28a745', '#007bff', '#ff00ff']
-         }]
-     },
-     options: {
-         responsive: true,
-         scales: {
-             y: {
-                 beginAtZero: true
-             }
-         }
-     }
- });
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Nurses', 'Doctors', 'Beds', 'Departments', 'Laboratories', 'Patients', 'Physicians', 'Radiologists', 'Technicians', 'Theatres', 'Wards'],
+                datasets: [{
+                    label: 'Count',
+                    data: [{{$nurses}}, {{$totalDoctors}}, {{$beds}}, {{$departments}}, {{$laboratories}}, {{$patients}}, {{$physicians}}, {{$radiologists}}, {{$technicians}}, {{$theatres}}, {{$wards}}],
+                    backgroundColor: ['#17a2b8', '#007bff', '#ffc107', '#dc3545', '#e83e8c', '#6f42c1', '#343a40', '#5bc0de', '#28a745', '#007bff', '#ff00ff']
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
- var ctxP = document.getElementById('pieChart1').getContext('2d');
- var pieChart1 = new Chart(ctxP, {
-     type: 'pie',
-     data: {
-         labels: ['Nurses', 'Doctors', 'Beds', 'Departments', 'Laboratories'],
-         datasets: [{
-             data: [{{$nurses}}, {{$totalDoctors}}, {{$beds}}, {{$departments}}, {{$laboratories}}],
-             backgroundColor: ['#17a2b8', '#007bff', '#ffc107', '#dc3545', '#e83e8c']
-         }]
-     },
-     options: {
-         responsive: true
-     }
- });
- </script>
+        var ctxP = document.getElementById('pieChart1').getContext('2d');
+        var pieChart1 = new Chart(ctxP, {
+            type: 'pie',
+            data: {
+                labels: ['Nurses', 'Doctors', 'Beds', 'Departments', 'Laboratories'],
+                datasets: [{
+                    data: [{{$nurses}}, {{$totalDoctors}}, {{$beds}}, {{$departments}}, {{$laboratories}}],
+                    backgroundColor: ['#17a2b8', '#007bff', '#ffc107', '#dc3545', '#e83e8c']
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
 
-
-
-
-<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         .card {
             position: relative;
@@ -299,7 +393,7 @@
         }
 
         .card-footer:last-child {
-            border-radius: 0 0 calc(0.35rem - 1px) calc(0.35rem - 1px);
+            border-radius:0 0 calc(0.35rem - 1px) calc(0.35rem - 1px);
         }
 
         .card-header-tabs {
@@ -438,16 +532,20 @@
             border-left: 0.25rem solid #4e73df !important;
             background-color: #E6F0FF;
         }
-        .border-left-success{
+
+        .border-left-success {
             border-left: 0.25rem solid  #FF0000 !important;
             background-color: #FFE6E6;
         }
-        .border-left-warning{
+
+        .border-left-warning {
             border-left: 0.25rem solid #ffc107 !important;
         }
-        .border-left-info{
+
+        .border-left-info {
             border-left: 0.25rem solid #0dcaf0 !important;
         }
+
         .shadow {
             box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
         }
@@ -478,7 +576,7 @@
         }
 
         .text-xs {
-            font-size:12px !important;
+            font-size: 12px !important;
         }
 
         .mb-4 {
@@ -509,9 +607,10 @@
             width: auto;
             max-width: none;
         }
-
     </style>
-<!-- Content Row -->
+    <!-- Content Row -->
 @endsection
+
+
 
 
