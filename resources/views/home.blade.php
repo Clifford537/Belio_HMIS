@@ -24,7 +24,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{ route('admin.patients.create') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">Get Started</a></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            <i class="fas fa-calendar fa-2x text-success"></i>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{ route('admin.doctors.index') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">View Doctors</a></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-user-md fa-2x text-gray-300"></i>
+                            <i class="fas fa-user-md fa-2x text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-user-nurse fa-2x text-gray-300"></i>
+                            <i class="fas fa-user-nurse fa-2x text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-bed fa-2x text-gray-300"></i>
+                            <i class="fas fa-bed fa-2x text-warning"></i>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-building fa-2x text-gray-300"></i>
+                            <i class="fas fa-building fa-2x text-info"></i>
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-vial fa-2x text-gray-300"></i>
+                            <i class="fas fa-vial fa-2x text-info"></i>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-procedures fa-2x text-gray-300"></i>
+                            <i class="fas fa-procedures fa-2x text-warning"></i>
                         </div>
                     </div>
                 </div>
@@ -171,13 +171,14 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-x-ray fa-2x text-gray-300"></i>
+                            <i class="fas fa-x-ray fa-2x text-primary"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!--third row-->
     <div class="row">
         <!-- Available Technicians -->
@@ -194,7 +195,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-tools fa-2x text-gray-300"></i>
+                            <i class="fas fa-tools fa-2x text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -213,7 +214,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-theater-masks fa-2x text-gray-300"></i>
+                            <i class="fas fa-theater-masks fa-2x text-info"></i>
                         </div>
                     </div>
                 </div>
@@ -234,12 +235,13 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-hospital-alt fa-2x text-gray-300"></i>
+                            <i class="fas fa-hospital-alt fa-2x text-info"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     
     <!-- Charts Row Container -->
