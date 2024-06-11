@@ -534,16 +534,19 @@
         }
 
         .border-left-success {
-            border-left: 0.25rem solid  #FF0000 !important;
-            background-color: #FFE6E6;
+            border-left: 0.25rem solid  #198754 !important;
+            background-color: #E6F0FF;
         }
 
         .border-left-warning {
             border-left: 0.25rem solid #ffc107 !important;
+            background-color: #E6F0FF;
+
         }
 
         .border-left-info {
             border-left: 0.25rem solid #0dcaf0 !important;
+            background-color: #E6F0FF;
         }
 
         .shadow {
