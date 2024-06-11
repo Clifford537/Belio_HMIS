@@ -9,7 +9,7 @@
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
         </div>
-    </div>
+   
     <!-- Content Row -->
     <div class="row">
         <!-- Getting started -->
@@ -241,6 +241,7 @@
             </div>
         </div>
     </div>
+    
     <!-- Charts Row Container -->
     <div class="row mt-3">
         <!-- Bar Chart -->
@@ -265,7 +266,7 @@
         </div>
     </div>
     </div>
-
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         var ctx = document.getElementById('barChart').getContext('2d');
