@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <span>Welcome to the Apx HMIS</span>
+                            <span>Welcome to the Apex HMIS</span>
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Click the get started Button</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{ route('admin.patients.create') }}" class="arrow-link" style="text-decoration:none;color: #0c84ff;font-size: 18px;">Get Started</a></div>
