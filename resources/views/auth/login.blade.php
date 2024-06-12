@@ -51,7 +51,7 @@
                     </form>
                 </div>
                 <div class="support-form">
-                    <div class="title">Support Contact</div>
+                    <div class="title">Contact Support</div>
                     <form method="post" action="mailto:support@learnsofthmis.co.ke">
                         @csrf
                         <div class="input-boxes">
