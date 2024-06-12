@@ -62,7 +62,7 @@
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
                                 <input type="email" name="email" placeholder="Enter your email" required>
-                            </div>
+                            </div> <br/>
                             <div class="input-box">
                                 <i class="fas fa-comments"></i>
                                 <textarea name="message" placeholder="Enter your message" required></textarea>
