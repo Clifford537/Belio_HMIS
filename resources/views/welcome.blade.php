@@ -50,7 +50,7 @@
             border-color: #117a8b;
         }
         .card-custom {
-            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            background-color: rgba(255, 255, 255, 0.8); 
             border-radius: 0.75rem;
             box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
             padding: 2rem;
