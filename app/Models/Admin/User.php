@@ -34,5 +34,5 @@ class User extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+
 }

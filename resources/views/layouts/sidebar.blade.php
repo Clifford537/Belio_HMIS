@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-light-primary elevation-4">
     <a href="{{ route('home') }}" class="brand-link">
         <img src="{{URL('Uploaded_Images/Apex HMIS Logo.png')}}"
              alt="AdminLTE Logo"

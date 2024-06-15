@@ -73,7 +73,7 @@
             font-size: 18px;
         }
         .text-highlight {
-            color: #000000;
+            color: #e5b20a;
             font-size: 36px;
             font-weight: 600;
         }

@@ -25,6 +25,10 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('permission:admin-dashboard-list|admin-dashboard-create|admin-dashboard-edit|admin-dashboard-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:admin-dashboard-create', ['only' => ['create','store']]);
+        $this->middleware('permission:admin-dashboard-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:admin-dashboard-delete', ['only' => ['destroy']]);
         $this->middleware('auth');
     }
 
