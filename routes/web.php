@@ -34,13 +34,13 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
-});
- Auth::routes(['verify' => true, 'register' => false]);
 
+});
+ Auth::routes(['verify' => true, 'register' => true]);
 
  Route::group(['middleware' => ['web','auth','verified']], function () {
      Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+     Route::get('/profile/index', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
 
      Route::resource('admin/users', App\Http\Controllers\Admin\UserController::class)
          ->names(names: [
@@ -356,7 +356,7 @@ Route::get('/', function () {
              'create' => 'admin.equipment.create',
              'edit' => 'admin.equipment.edit'
          ]);
- });
+
 
 Route::resource('admin/permissions', App\Http\Controllers\Admin\PermissionController::class)
     ->names([
@@ -378,3 +378,4 @@ Route::resource('admin/roles', App\Http\Controllers\Admin\RoleController::class)
         'create' => 'admin.roles.create',
         'edit' => 'admin.roles.edit'
     ]);
+ });

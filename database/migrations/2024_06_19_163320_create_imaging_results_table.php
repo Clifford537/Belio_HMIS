@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('imaging_results', function (Blueprint $table) {
+            $table->bigInteger('id', true);
+            $table->string('imaging_type', 100)->nullable();
+            $table->dateTime('imaging_date')->nullable();
+            $table->text('imaging_results')->nullable();
+            $table->bigInteger('technician_id')->nullable()->index('fk_imaging_results_technicians');
+            $table->string('reporting_radiologist', 100)->nullable();
+            $table->text('comments')->nullable();
+            $table->string('image_link', 100)->nullable();
+            $table->timestamp('created_at')->nullable()->useCurrent();
+            $table->timestamp('updated_at')->nullable()->useCurrent();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('imaging_results');
+    }
+};

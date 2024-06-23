@@ -4,6 +4,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="icon" href={{asset('./Uploaded_Images/favicon.ico')}} type="image/x-icon">
 
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
@@ -20,14 +21,14 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{URL('Uploaded_Images/Apex HMIS Logo.png')}}"
+                            <img src="{{URL('./Uploaded_Images/Apex HMIS Logo.png')}}"
                                 class="user-image img-circle elevation-2" alt="User Image">
                             <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <!-- User image -->
                             <li class="user-header bg-primary">
-                                <img src="{{URL('Uploaded_Images/Apex HMIS Logo.png')}}"
+                                <img src="{{URL('./Uploaded_Images/Apex HMIS Logo.png')}}"
                                     class="img-circle elevation-2" alt="User Image">
                                 <p>
                                     {{ Auth::user()->name }}
@@ -36,7 +37,7 @@
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ route('profile.index') }}" class="btn btn-default btn-flat">Profile</a>
                                 <a href="#" class="btn btn-default btn-flat float-right"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Sign out

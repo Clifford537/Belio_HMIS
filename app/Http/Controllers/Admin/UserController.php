@@ -35,7 +35,18 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.users.create');
+ protected function create(array $data)
+    {
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+
+        $getuserid = $user->id;
+        $createprofile = new Profile();
+        $createprofile->user_id = $getuserid;
+        $createprofile->save();return view('admin.users.create');
     }
 
     /**

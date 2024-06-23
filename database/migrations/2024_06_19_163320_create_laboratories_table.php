@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('laboratories', function (Blueprint $table) {
+            $table->bigInteger('id', true);
+            $table->string('name', 100);
+            $table->bigInteger('department_id')->nullable()->index('fk_laboratories_departments');
+            $table->string('location', 100)->nullable();
+            $table->char('status', 100)->nullable();
+            $table->bigInteger('equipments_id')->nullable();
+            $table->bigInteger('technician_id')->nullable()->unique('unq_laboratories_technician_id');
+            $table->timestamp('created_at')->nullable()->useCurrent();
+            $table->timestamp('updated_at')->nullable()->useCurrent();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('laboratories');
+    }
+};
