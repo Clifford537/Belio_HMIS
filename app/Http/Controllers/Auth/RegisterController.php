@@ -7,6 +7,10 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Profile;
+use Laracasts\Flash\Flash;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -28,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/dashboard';
 
     /**
      * Create a new controller instance.
@@ -69,12 +73,17 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        $role = Role::find(1);
+        $permissions = Permission::pluck('id', 'id')->all();
+        $role->syncPermissions($permissions);
+        $user->assignRole([$role->id]);
+
         $getuserid = $user->id;
-        $createprofile = new Profile();
+        $createprofile = new Profile()   ;
         $createprofile->user_id = $getuserid;
         $createprofile->save();
 
-        Alert::success('Success','User registered successfully');
+        Flash::success('Success','User registered successfully');
         return $user;
     }
 }

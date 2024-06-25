@@ -1,6 +1,7 @@
  <?php
 
-use Illuminate\Support\Facades\Route;
+ use App\Http\Controllers\ProfileController;
+ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 /*
@@ -13,6 +14,8 @@ use Illuminate\Http\Request;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+ Auth::routes(['verify' => true, 'register' => true]);
+
  Route::get('/email/verify', function () {
      return view('auth.verify-email');
  })->middleware('auth')->name('verification.notice');
@@ -25,8 +28,22 @@ use Illuminate\Http\Request;
 
          return back()->with('message', 'Verification link sent!');
      })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-     return redirect('/home');
+     return redirect('/admin/dashboard');
  })->middleware(['auth', 'signed'])->name('verification.verify');
+
+ Route::get('admin/users/{id}/change-password-prompt', [\App\Http\Controllers\Admin\UserController::class,'changePasswordPrompt'])
+     ->name('admin.users.changePasswordPrompt');
+ Route::put('admin/users/{id}/update-password', [\App\Http\Controllers\Admin\UserController::class, 'updatePasswordAdmin'])
+     ->name('admin.users.updatePassword');
+ Route::get('admin/logged-in-users', [\App\Http\Controllers\Admin\UserController::class, 'loggedInUsers'])
+     ->name('admin.logged-in-users');
+
+ Route::prefix('admin')->group(function () {
+     Route::get('user/profile', [\App\Http\Controllers\Admin\UserProfileController::class, 'showProfile'])->name('profile.show');
+     Route::put('user/profile/update', [\App\Http\Controllers\Admin\UserProfileController::class, 'updateProfile'])->name('profile.update');
+     Route::post('user/profile/update-password', [\App\Http\Controllers\Admin\UserProfileController::class, 'updatePassword'])->name('profile.update.password');
+     // Add routes for other profile actions as needed
+ });
 
  Route::get('/profile', function () {
      // Only verified users may access this route...
@@ -34,12 +51,11 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
-
 });
- Auth::routes(['verify' => true, 'register' => true]);
+
 
  Route::group(['middleware' => ['web','auth','verified']], function () {
-     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+     Route::get('/admin/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
      Route::get('/profile/index', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
 
      Route::resource('admin/users', App\Http\Controllers\Admin\UserController::class)

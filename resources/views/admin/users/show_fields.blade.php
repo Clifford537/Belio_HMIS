@@ -10,7 +10,6 @@
     <p>{{ $user->email }}</p>
 </div>
 
-{{--
 <!-- Email Verified At Field -->
 <div class="col-sm-12">
     {!! Form::label('email_verified_at', 'Email Verified At:') !!}
@@ -29,4 +28,3 @@
     <p>{{ $user->remember_token }}</p>
 </div>
 
---}}

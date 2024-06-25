@@ -23,17 +23,32 @@
 
             <div class="card-body">
                 <div class="row">
-                    @include('admin.users.fields')
+                    <div class="col-md-6">
+                        {!! Form::model($user, ['route' => ['admin.users.update', $user->id], 'method' => 'PATCH']) !!}
+                        <div class="form-group">
+                            <strong>Name:</strong>
+                            {!! Form::text('name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            <strong>Email:</strong>
+                            {!! Form::text('email', null, ['placeholder' => 'Email', 'class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <strong>Role:</strong>
+                            {!! Form::select('roles[]', $roles, $userRole, ['class' => 'form-control', 'multiple']) !!}
+                        </div>
+                    </div>
                 </div>
+
+                <div class="card-footer">
+                    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-default"> Cancel </a>
+                </div>
+
+                {!! Form::close() !!}
+
             </div>
-
-            <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('admin.users.index') }}" class="btn btn-default"> Cancel </a>
-            </div>
-
-            {!! Form::close() !!}
-
         </div>
-    </div>
 @endsection

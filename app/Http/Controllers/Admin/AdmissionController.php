@@ -19,6 +19,10 @@ class AdmissionController extends AppBaseController
 
     public function __construct(AdmissionRepository $admissionRepo)
     {
+        $this->middleware('permission:admissions-list|admissions-create|admissions-edit|admissions-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:admissions-create', ['only' => ['create','store']]);
+        $this->middleware('permission:admissions-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:admissions-delete', ['only' => ['destroy']]);
         $this->admissionRepository = $admissionRepo;
     }
 

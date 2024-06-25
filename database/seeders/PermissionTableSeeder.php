@@ -17,6 +17,8 @@ class PermissionTableSeeder extends Seeder
         $data = [
             'admin-dashboard-list',
 
+            'users-and-control-list',
+
             'permission-list',
             'permission-create',
             'permission-edit',
