@@ -3,9 +3,12 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class MedicalRecord extends Model
+class MedicalRecord extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'medical_records';
 
     public $fillable = [

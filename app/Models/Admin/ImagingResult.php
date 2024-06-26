@@ -3,9 +3,12 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class ImagingResult extends Model
+class ImagingResult extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'imaging_results';
 
     public $fillable = [

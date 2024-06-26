@@ -8,6 +8,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 class Permission extends Model implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
+
     public $table = 'permissions';
 
     public $fillable = [

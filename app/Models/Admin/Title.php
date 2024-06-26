@@ -3,9 +3,12 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Title extends Model
+class Title extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'titles';
 
     public $fillable = [
@@ -20,5 +23,5 @@ class Title extends Model
         'title' => 'required'
     ];
 
-    
+
 }

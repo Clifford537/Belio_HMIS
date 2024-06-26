@@ -3,9 +3,12 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class WardType extends Model
+class WardType extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'ward_types';
 
     public $fillable = [
@@ -22,5 +25,5 @@ class WardType extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+
 }

@@ -3,9 +3,12 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class EmploymentStatus extends Model
+class EmploymentStatus extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'employment_statuses';
 
     public $fillable = [
@@ -22,5 +25,5 @@ class EmploymentStatus extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+
 }

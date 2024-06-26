@@ -3,9 +3,12 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class RadiologyProcedure extends Model
+class RadiologyProcedure extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'radiology_procedures';
 
     public $fillable = [
@@ -51,5 +54,5 @@ class RadiologyProcedure extends Model
         'theatre_id' => 'nullable'
     ];
 
-    
+
 }

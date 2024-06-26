@@ -3,9 +3,12 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Relationship extends Model
+class Relationship extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'relationships';
 
     public $fillable = [
@@ -22,5 +25,5 @@ class Relationship extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+
 }

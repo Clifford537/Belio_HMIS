@@ -3,9 +3,12 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class AdmissionChecklist extends Model
+class AdmissionChecklist extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'admission_checklists';
 
     public $fillable = [

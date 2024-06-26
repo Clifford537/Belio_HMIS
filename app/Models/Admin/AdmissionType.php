@@ -4,8 +4,10 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AdmissionType extends Model
+class AdmissionType extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'admission_types';
 
     public $fillable = [

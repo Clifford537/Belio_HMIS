@@ -3,9 +3,12 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class NextOfKin extends Model
+class NextOfKin extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'next_of_kins';
 
     public $fillable = [
