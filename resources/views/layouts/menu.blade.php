@@ -182,7 +182,7 @@
             </p>
         </a>
         <ul class="nav nav-treeview">
-            @can('doctors-list')
+            @can('doctor-list')
             <li class="nav-item">
                 <a href="{{ route('admin.doctors.index') }}" class="nav-link {{ Request::is('admin/doctors*') ? 'active' : '' }} ">
                     <i class="nav-icon fa fa-user-md text-warning" aria-hidden="true"></i>
@@ -193,7 +193,7 @@
                 @can('nurses-list')
                 <li class="nav-item">
                 <a href="{{ route('admin.nurses.index') }}" class="nav-link {{ Request::is('admin/nurses*') ? 'active' : '' }} ">
-                    <i class="nav-icon fa fa-user-md text-warning" aria-hidden="true"></i>
+                    <i class="nav-icon fa fa-user-nurse text-warning" aria-hidden="true"></i>
                     <p>Nurses</p>
                 </a>
             </li>
@@ -202,7 +202,7 @@
                     @can('physicians-list')
                     <li class="nav-item">
                 <a href="{{ route('admin.physicians.index') }}" class="nav-link {{ Request::is('admin/physicians*') ? 'active' : '' }} ">
-                    <i class="nav-icon fa fa-user-md text-warning" aria-hidden="true"></i>
+                    <i class="nav-icon fa fa-id-card text-warning" aria-hidden="true"></i>
                     <p>Physicians</p>
                 </a>
             </li>
@@ -211,7 +211,7 @@
                 @can('radiologists-list')
                 <li class="nav-item">
                 <a href="{{ route('admin.radiologists.index') }}" class="nav-link {{ Request::is('admin/radiologists*') ? 'active' : '' }} ">
-                    <i class="nav-icon fa fa-user-md text-warning" aria-hidden="true"></i>
+                    <i class="nav-icon fa fa-head-side-mask text-warning" aria-hidden="true"></i>
                     <p>Radiologists</p>
                 </a>
             </li>
@@ -325,7 +325,7 @@
                 @can('laboratories-list')
                 <li class="nav-item">
                 <a href="{{ route('admin.laboratories.index') }}" class="nav-link {{ Request::is('admin/laboratories*') ? 'active' : '' }} ">
-                    </i><i class="fa fa-flask red-color text-warning" aria-hidden="true"></i>
+                    </i><i class="nav-icon fa fa-flask red-color text-warning" aria-hidden="true"></i>
                     <p>Laboratories</p>
                 </a>
             </li>
