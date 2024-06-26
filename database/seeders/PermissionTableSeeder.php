@@ -18,8 +18,17 @@ class PermissionTableSeeder extends Seeder
             'admin-dashboard-list',
 
             'users-and-control-list',
-
+            'administrative-management',
             'audit-module-list',
+            'patient-management',
+            'medical-personnel',
+            'medical-records',
+            'facility-management',
+            'finance-management',
+            'audit-trails',
+
+            'logged-in-user-list',
+
 
             'permission-list',
             'permission-create',
