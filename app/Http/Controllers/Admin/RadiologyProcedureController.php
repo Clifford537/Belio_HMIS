@@ -23,6 +23,10 @@ class RadiologyProcedureController extends AppBaseController
 
     public function __construct(RadiologyProcedureRepository $radiologyProcedureRepo)
     {
+        $this->middleware('permission:radiology-procedure-list|radiology-procedure-create|radiology-procedure-edit|radiology-procedure-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:radiology-procedure-create', ['only' => ['create','store']]);
+        $this->middleware('permission:radiology-procedure-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:radiology-procedure-delete', ['only' => ['destroy']]);
         $this->radiologyProcedureRepository = $radiologyProcedureRepo;
     }
 

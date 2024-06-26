@@ -17,6 +17,10 @@ class EquipmentController extends AppBaseController
 
     public function __construct(EquipmentRepository $equipmentRepo)
     {
+        $this->middleware('permission:equipments-list|equipments-create|equipments-edit|equipments-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:equipments-create', ['only' => ['create','store']]);
+        $this->middleware('permission:equipments-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:equipments-delete', ['only' => ['destroy']]);
         $this->equipmentRepository = $equipmentRepo;
     }
 

@@ -19,6 +19,10 @@ class DischargeController extends AppBaseController
 
     public function __construct(DischargeRepository $dischargeRepo)
     {
+        $this->middleware('permission:discharge-list|discharge-create|discharge-edit|discharge-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:discharge-create', ['only' => ['create','store']]);
+        $this->middleware('permission:discharge-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:discharge-delete', ['only' => ['destroy']]);
         $this->dischargeRepository = $dischargeRepo;
     }
 

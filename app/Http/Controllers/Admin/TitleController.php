@@ -16,6 +16,10 @@ class TitleController extends AppBaseController
 
     public function __construct(TitleRepository $titleRepo)
     {
+        $this->middleware('permission:titles-list|titles-create|titles-edit|titles-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:titles-create', ['only' => ['create','store']]);
+        $this->middleware('permission:titles-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:titles-delete', ['only' => ['destroy']]);
         $this->titleRepository = $titleRepo;
     }
 

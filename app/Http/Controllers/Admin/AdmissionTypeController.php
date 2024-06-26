@@ -17,6 +17,10 @@ class AdmissionTypeController extends AppBaseController
 
     public function __construct(AdmissionTypeRepository $admissionTypeRepo)
     {
+        $this->middleware('permission:admissions-list|admission-types-create|admission-types-edit|admission-types-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:admission-types-create', ['only' => ['create','store']]);
+        $this->middleware('permission:admission-types-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:admission-types-delete', ['only' => ['destroy']]);
         $this->admissionTypeRepository = $admissionTypeRepo;
     }
 

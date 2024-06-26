@@ -19,6 +19,10 @@ class ImagingResultController extends AppBaseController
 
     public function __construct(ImagingResultRepository $imagingResultRepo)
     {
+        $this->middleware('permission:imaging-results-list|imaging-results-create|imaging-results-edit|imaging-results-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:imaging-results-create', ['only' => ['create','store']]);
+        $this->middleware('permission:imaging-results-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:imaging-results-delete', ['only' => ['destroy']]);
         $this->imagingResultRepository = $imagingResultRepo;
     }
 

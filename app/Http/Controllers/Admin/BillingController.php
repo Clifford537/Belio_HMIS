@@ -18,6 +18,10 @@ class BillingController extends AppBaseController
 
     public function __construct(BillingRepository $billingRepo)
     {
+        $this->middleware('permission:billing-list|billing-create|billing-edit|billing-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:billing-create', ['only' => ['create','store']]);
+        $this->middleware('permission:billing-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:billing-delete', ['only' => ['destroy']]);
         $this->billingRepository = $billingRepo;
     }
 

@@ -256,3 +256,32 @@
         </ul>
     </li>
 @endcan
+
+<!-- Add the system audit collapsible -->
+@can('audit-module-list')
+    <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-search text-cyan"></i>
+            <p>
+                System Audit
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ route('admin.audits.index') }}" class="nav-link {{ Request::is('admin.audits*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-history text-warning"></i>
+                    <p>Audit Trails</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.logged-in-users') }}" class="nav-link {{ Request::is('admin.logged-in-users*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-id-badge text-warning"></i>
+                    <p>Logged Users</p>
+                </a>
+            </li>
+
+
+        </ul>
+    </li>
+@endcan

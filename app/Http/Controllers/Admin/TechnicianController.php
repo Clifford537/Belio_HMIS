@@ -17,6 +17,10 @@ class TechnicianController extends AppBaseController
 
     public function __construct(TechnicianRepository $technicianRepo)
     {
+        $this->middleware('permission:technicians-list|technicians-create|technicians-edit|technicians-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:technicians-create', ['only' => ['create','store']]);
+        $this->middleware('permission:technicians-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:technicians-delete', ['only' => ['destroy']]);
         $this->technicianRepository = $technicianRepo;
     }
 

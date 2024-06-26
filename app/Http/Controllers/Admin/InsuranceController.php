@@ -18,6 +18,10 @@ class InsuranceController extends AppBaseController
 
     public function __construct(InsuranceRepository $insuranceRepo)
     {
+        $this->middleware('permission:insurances-list|insurances-create|insurances-edit|insurances-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:insurances-create', ['only' => ['create','store']]);
+        $this->middleware('permission:insurances-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:insurances-delete', ['only' => ['destroy']]);
         $this->insuranceRepository = $insuranceRepo;
     }
 

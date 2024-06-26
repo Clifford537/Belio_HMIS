@@ -19,6 +19,10 @@ class NurseController extends AppBaseController
 
     public function __construct(NurseRepository $nurseRepo)
     {
+        $this->middleware('permission:nurses-list|nurses-create|nurses-edit|nurses-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:nurses-create', ['only' => ['create','store']]);
+        $this->middleware('permission:nurses-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:nurses-delete', ['only' => ['destroy']]);
         $this->nurseRepository = $nurseRepo;
     }
 

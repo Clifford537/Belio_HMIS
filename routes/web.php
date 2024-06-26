@@ -38,6 +38,11 @@ use Illuminate\Http\Request;
  Route::get('admin/logged-in-users', [\App\Http\Controllers\Admin\UserController::class, 'loggedInUsers'])
      ->name('admin.logged-in-users');
 
+ Route::get('/admin/get-audits-reports', [\App\Http\Controllers\AuditController::class, 'index'])->name('admin.audits.index');
+ Route::get('/admin/get-audits-reports/{id}', [\App\Http\Controllers\AuditController::class, 'show'])->name('audits.show');
+ Route::get('admin/logged-in-users', [\App\Http\Controllers\Admin\UserController::class, 'loggedInUsers'])
+     ->name('admin.logged-in-users');
+
  Route::prefix('admin')->group(function () {
      Route::get('user/profile', [\App\Http\Controllers\Admin\UserProfileController::class, 'showProfile'])->name('profile.show');
      Route::put('user/profile/update', [\App\Http\Controllers\Admin\UserProfileController::class, 'updateProfile'])->name('profile.update');

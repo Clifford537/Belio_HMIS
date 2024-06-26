@@ -19,6 +19,8 @@ class PermissionTableSeeder extends Seeder
 
             'users-and-control-list',
 
+            'audit-module-list',
+
             'permission-list',
             'permission-create',
             'permission-edit',
@@ -179,6 +181,10 @@ class PermissionTableSeeder extends Seeder
             'equipments-edit',
             'equipments-delete',
 
+            'audit-list',
+            'audit-create',
+            'audit-edit',
+            'audit-delete',
         ];
 
         foreach ($data as $permission) {

@@ -17,6 +17,10 @@ class RelationshipController extends AppBaseController
 
     public function __construct(RelationshipRepository $relationshipRepo)
     {
+        $this->middleware('permission:relationships-list|relationships-create|relationships-edit|relationships-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:relationships-create', ['only' => ['create','store']]);
+        $this->middleware('permission:relationships-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:relationships-delete', ['only' => ['destroy']]);
         $this->relationshipRepository = $relationshipRepo;
     }
 

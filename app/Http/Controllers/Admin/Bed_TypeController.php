@@ -17,6 +17,10 @@ class Bed_TypeController extends AppBaseController
 
     public function __construct(Bed_TypeRepository $bedTypeRepo)
     {
+        $this->middleware('permission:bed-types-list|bed-types-create|bed-types-edit|bed-types-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:bed-types-create', ['only' => ['create','store']]);
+        $this->middleware('permission:bed-types-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:bed-types-delete', ['only' => ['destroy']]);
         $this->bedTypeRepository = $bedTypeRepo;
     }
 

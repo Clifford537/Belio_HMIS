@@ -20,6 +20,10 @@ class BedController extends AppBaseController
 
     public function __construct(BedRepository $bedRepo)
     {
+        $this->middleware('permission:beds-list|beds-create|beds-edit|beds-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:beds-create', ['only' => ['create','store']]);
+        $this->middleware('permission:beds-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:beds-delete', ['only' => ['destroy']]);
         $this->bedRepository = $bedRepo;
     }
 

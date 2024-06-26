@@ -17,6 +17,10 @@ class ShiftController extends AppBaseController
 
     public function __construct(ShiftRepository $shiftRepo)
     {
+        $this->middleware('permission:shifts-list|shifts-create|shifts-edit|shifts-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:shifts-create', ['only' => ['create','store']]);
+        $this->middleware('permission:shifts-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:shifts-delete', ['only' => ['destroy']]);
         $this->shiftRepository = $shiftRepo;
     }
 

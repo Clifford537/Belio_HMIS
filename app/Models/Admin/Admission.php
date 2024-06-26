@@ -2,10 +2,13 @@
 
 namespace App\Models\Admin;
 
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\Model;
 
-class Admission extends Model
+class Admission extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $table = 'admissions';
 
     public $fillable = [

@@ -17,6 +17,10 @@ class SpecialisationController extends AppBaseController
 
     public function __construct(SpecialisationRepository $specialisationRepo)
     {
+        $this->middleware('permission:specialisations-list|specialisations-create|specialisations-edit|specialisations-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:specialisations-create', ['only' => ['create','store']]);
+        $this->middleware('permission:specialisations-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:specialisations-delete', ['only' => ['destroy']]);
         $this->specialisationRepository = $specialisationRepo;
     }
 

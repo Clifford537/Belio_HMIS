@@ -20,6 +20,10 @@ class PatientController extends AppBaseController
 
     public function __construct(PatientRepository $patientRepo)
     {
+        $this->middleware('permission:patients-list|patients-create|patients-edit|patients-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:patients-create', ['only' => ['create','store']]);
+        $this->middleware('permission:patients-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:patients-delete', ['only' => ['destroy']]);
         $this->patientRepository = $patientRepo;
     }
 

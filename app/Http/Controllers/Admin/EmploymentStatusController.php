@@ -17,6 +17,10 @@ class EmploymentStatusController extends AppBaseController
 
     public function __construct(EmploymentStatusRepository $employmentStatusRepo)
     {
+        $this->middleware('permission:employment-status-list|employment-status-create|employment-status-edit|employment-status-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:employment-status-create', ['only' => ['create','store']]);
+        $this->middleware('permission:employment-status-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:employment-status-delete', ['only' => ['destroy']]);
         $this->employmentStatusRepository = $employmentStatusRepo;
     }
 

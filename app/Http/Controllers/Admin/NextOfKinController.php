@@ -17,6 +17,10 @@ class NextOfKinController extends AppBaseController
 
     public function __construct(NextOfKinRepository $nextOfKinRepo)
     {
+        $this->middleware('permission:next-of-kin-list|next-of-kin-create|next-of-kin-edit|next-of-kin-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:next-of-kin-create', ['only' => ['create','store']]);
+        $this->middleware('permission:next-of-kin-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:next-of-kin-delete', ['only' => ['destroy']]);
         $this->nextOfKinRepository = $nextOfKinRepo;
     }
 

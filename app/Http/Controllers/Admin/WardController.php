@@ -20,6 +20,10 @@ class WardController extends AppBaseController
 
     public function __construct(WardRepository $wardRepo)
     {
+        $this->middleware('permission:wards-list|wards-create|wards-edit|wards-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:wards-create', ['only' => ['create','store']]);
+        $this->middleware('permission:wards-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:wards-delete', ['only' => ['destroy']]);
         $this->wardRepository = $wardRepo;
     }
 

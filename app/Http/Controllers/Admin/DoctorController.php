@@ -21,6 +21,10 @@ class DoctorController extends AppBaseController
 
     public function __construct(DoctorRepository $doctorRepo)
     {
+        $this->middleware('permission:doctor-list|doctor-create|doctor-edit|doctor-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:doctor-create', ['only' => ['create','store']]);
+        $this->middleware('permission:doctor-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:doctor-delete', ['only' => ['destroy']]);
         $this->doctorRepository = $doctorRepo;
     }
 

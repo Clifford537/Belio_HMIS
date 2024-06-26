@@ -20,6 +20,10 @@ class MedicalRecordController extends AppBaseController
 
     public function __construct(MedicalRecordRepository $medicalRecordRepo)
     {
+        $this->middleware('permission:medical-records-list|medical-records-create|medical-records-edit|medical-records-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:medical-records-create', ['only' => ['create','store']]);
+        $this->middleware('permission:medical-records-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:medical-records-delete', ['only' => ['destroy']]);
         $this->medicalRecordRepository = $medicalRecordRepo;
     }
 

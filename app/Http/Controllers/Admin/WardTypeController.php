@@ -17,6 +17,10 @@ class WardTypeController extends AppBaseController
 
     public function __construct(WardTypeRepository $wardTypeRepo)
     {
+        $this->middleware('permission:ward-types-list|ward-types-create|ward-types-edit|ward-types-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:ward-types-create', ['only' => ['create','store']]);
+        $this->middleware('permission:ward-types-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:ward-types-delete', ['only' => ['destroy']]);
         $this->wardTypeRepository = $wardTypeRepo;
     }
 

@@ -21,6 +21,10 @@ class LaboratoryController extends AppBaseController
 
     public function __construct(LaboratoryRepository $laboratoryRepo)
     {
+        $this->middleware('permission:laboratories-list|laboratories-create|laboratories-edit|laboratories-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:laboratories-create', ['only' => ['create','store']]);
+        $this->middleware('permission:laboratories-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:laboratories-delete', ['only' => ['destroy']]);
         $this->laboratoryRepository = $laboratoryRepo;
     }
 

@@ -18,6 +18,11 @@ class AdmissionChecklistController extends AppBaseController
 
     public function __construct(AdmissionChecklistRepository $admissionChecklistRepo)
     {
+        $this->middleware('permission:admission-checklist-list|admission-checklist-create|admission-checklist-edit|admission-checklist-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:admission-checklist-create', ['only' => ['create','store']]);
+        $this->middleware('permission:admission-checklist-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:admission-checklist-delete', ['only' => ['destroy']]);
+
         $this->admissionChecklistRepository = $admissionChecklistRepo;
     }
 

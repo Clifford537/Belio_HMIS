@@ -18,6 +18,10 @@ class TheatreController extends AppBaseController
 
     public function __construct(TheatreRepository $theatreRepo)
     {
+        $this->middleware('permission:theatres-list|theatres-create|theatres-edit|theatres-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:theatres-create', ['only' => ['create','store']]);
+        $this->middleware('permission:theatres-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:theatres-delete', ['only' => ['destroy']]);
         $this->theatreRepository = $theatreRepo;
     }
 

@@ -19,6 +19,10 @@ class RadiologistController extends AppBaseController
 
     public function __construct(RadiologistRepository $radiologistRepo)
     {
+        $this->middleware('permission:radiologists-list|radiologists-create|radiologists-edit|radiologists-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:radiologists-create', ['only' => ['create','store']]);
+        $this->middleware('permission:radiologists-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:radiologists-delete', ['only' => ['destroy']]);
         $this->radiologistRepository = $radiologistRepo;
     }
 

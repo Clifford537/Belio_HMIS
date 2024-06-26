@@ -19,6 +19,10 @@ class PhysicianController extends AppBaseController
 
     public function __construct(PhysicianRepository $physicianRepo)
     {
+        $this->middleware('permission:physicians-list|physicians-create|physicians-edit|physicians-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:physicians-create', ['only' => ['create','store']]);
+        $this->middleware('permission:physicians-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:physicians-delete', ['only' => ['destroy']]);
         $this->physicianRepository = $physicianRepo;
     }
 

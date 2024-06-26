@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserProfileController extends Controller
 {
+
     public function showProfile()
     {
         $user = Auth::user();
